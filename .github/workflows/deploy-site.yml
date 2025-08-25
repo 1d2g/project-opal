@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 0,12 * * *'
   workflow_dispatch:
+permissions:
+  contents: write    # Allow pushing to branches
+  pages: write       # Allow updating GitHub Pages
 
 jobs:
   build-and-deploy:
