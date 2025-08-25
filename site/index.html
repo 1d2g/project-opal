@@ -3,84 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Homepage</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-        }
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-        .sidebar {
-            background: #fff;
-            box-shadow: 2px 0 8px rgba(0,0,0,0.08);
-            padding: 5px;
-            width: 220px;
-            transition: width 0.3s;
-            min-width: 60px;
-            display: flex;
-            flex-direction: column;
-        }
-        .sidebar.collapsed {
-            width: 60px;
-        }
-        .sidebar-toggle {
-            background: #eee;
-            border: none;
-            padding: 5px;
-            cursor: pointer;
-            margin-bottom: 10px;
-            border-radius: 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            gap: 20px;
-        }
-        .vertical-boxes {
-            display: flex;
-            gap: 20px;
-        }
-        .box {
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-            padding: 5px;
-            border-radius: 0;
-            flex: 1;
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .horizontal-box {
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-            padding: 5px;
-            border-radius: 0;
-            min-height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="top-bar">
+        <span class="top-bar-title">Opal</span>
+    </div>
     <div class="container">
-        <div class="sidebar" id="sidebar">
+        <div class="sidebar collapsed" id="sidebar">
             <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
-            <div style="margin-top:10px;">Sidebar (Navigation)</div>
         </div>
         <div class="main-content">
             <div class="vertical-boxes">
-                <div class="box">Vertical Box 1</div>
-                <div class="box">Vertical Box 2</div>
+                <div class="box"></div>
+                <div class="box"></div>
             </div>
-            <div class="horizontal-box">Horizontal Box</div>
+            <div class="horizontal-box"></div>
         </div>
     </div>
     <script>
