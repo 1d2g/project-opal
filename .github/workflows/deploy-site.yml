@@ -5,8 +5,8 @@ on:
     - cron: '0 0,12 * * *'
   workflow_dispatch:
 permissions:
-  contents: write    # Allow pushing to branches
-  pages: write       # Allow updating GitHub Pages
+  contents: write
+  pages: write
 
 jobs:
   build-and-deploy:
@@ -23,13 +23,19 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-     # - name: Run backend script
-      #  env:
-        #  API_KEY: ${{ secrets.API_KEY }}
-      #  run: python scripts/backend_script.py
+      # Uncomment and use if you need to run backend_script.py
+      # - name: Run backend script
+      #   env:
+      #     API_KEY: ${{ secrets.API_KEY }}
+      #   run: python scripts/backend_script.py
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './site'
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        id: deployment
+        uses: actions/deploy-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          token: ${{ secrets.GITHUB_TOKEN }}
