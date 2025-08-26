@@ -24,12 +24,14 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f5f5f5;
-    padding-top: 60px; /* To prevent content under top bar */
+    padding-top: 70px; /* Top bar height (60px) + gap (10px) for consistent spacing */
 }
 .container {
     display: flex;
-    height: calc(100vh - 60px); /* Subtract top bar height */
+    height: calc(100vh - 70px); /* Subtract top bar height (60px) + gap (10px) */
     box-sizing: border-box;
+    gap: 10px;
+    min-height: 0;
 }
 .sidebar {
     background: #fff;
@@ -40,6 +42,7 @@ body {
     min-width: 60px;
     display: flex;
     flex-direction: column;
+    margin-top: -10px; /* Counteract body padding-top gap so sidebar aligns with header */
 }
 .sidebar.collapsed {
     width: 60px;
@@ -57,15 +60,17 @@ body {
     flex: 1 1 0%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    gap: 20px;
+    gap: 10px;
     height: 100%;
     box-sizing: border-box;
+    min-height: 0;
+    padding-right: 10px;
 }
 .vertical-boxes {
     display: flex;
-    gap: 20px;
-    flex: 3 1 0%;
+    gap: 10px;
+    height: 76%;
+    min-height: 0;
 }
 .box {
     background: #fff;
@@ -88,5 +93,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1 1 0%;
+    height: 25%;
+    margin-top: 10px;
 }
