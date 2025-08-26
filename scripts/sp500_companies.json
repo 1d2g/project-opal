@@ -1,0 +1,2517 @@
+[
+    {
+        "symbol": "A",
+        "name": "Agilent Technologies",
+        "cik": "0001090872"
+    },
+    {
+        "symbol": "AAPL",
+        "name": "Apple Inc.",
+        "cik": "0000320193"
+    },
+    {
+        "symbol": "ABBV",
+        "name": "AbbVie",
+        "cik": "0001551152"
+    },
+    {
+        "symbol": "ABNB",
+        "name": "Airbnb",
+        "cik": "0001559720"
+    },
+    {
+        "symbol": "ABT",
+        "name": "Abbott Laboratories",
+        "cik": "0000001800"
+    },
+    {
+        "symbol": "ACGL",
+        "name": "Arch Capital Group",
+        "cik": "0000947484"
+    },
+    {
+        "symbol": "ACN",
+        "name": "Accenture",
+        "cik": "0001467373"
+    },
+    {
+        "symbol": "ADBE",
+        "name": "Adobe Inc.",
+        "cik": "0000796343"
+    },
+    {
+        "symbol": "ADI",
+        "name": "Analog Devices",
+        "cik": "0000006281"
+    },
+    {
+        "symbol": "ADM",
+        "name": "Archer Daniels Midland",
+        "cik": "0000007084"
+    },
+    {
+        "symbol": "ADP",
+        "name": "Automatic Data Processing",
+        "cik": "0000008670"
+    },
+    {
+        "symbol": "ADSK",
+        "name": "Autodesk",
+        "cik": "0000769397"
+    },
+    {
+        "symbol": "AEE",
+        "name": "Ameren",
+        "cik": "0001002910"
+    },
+    {
+        "symbol": "AEP",
+        "name": "American Electric Power",
+        "cik": "0000004904"
+    },
+    {
+        "symbol": "AES",
+        "name": "AES Corporation",
+        "cik": "0000874761"
+    },
+    {
+        "symbol": "AFL",
+        "name": "Aflac",
+        "cik": "0000004977"
+    },
+    {
+        "symbol": "AIG",
+        "name": "American International Group",
+        "cik": "0000005272"
+    },
+    {
+        "symbol": "AIZ",
+        "name": "Assurant",
+        "cik": "0001267238"
+    },
+    {
+        "symbol": "AJG",
+        "name": "Arthur J. Gallagher & Co.",
+        "cik": "0000354190"
+    },
+    {
+        "symbol": "AKAM",
+        "name": "Akamai Technologies",
+        "cik": "0001086222"
+    },
+    {
+        "symbol": "ALB",
+        "name": "Albemarle Corporation",
+        "cik": "0000915913"
+    },
+    {
+        "symbol": "ALGN",
+        "name": "Align Technology",
+        "cik": "0001097149"
+    },
+    {
+        "symbol": "ALL",
+        "name": "Allstate",
+        "cik": "0000899051"
+    },
+    {
+        "symbol": "ALLE",
+        "name": "Allegion",
+        "cik": "0001579241"
+    },
+    {
+        "symbol": "AMAT",
+        "name": "Applied Materials",
+        "cik": "0000006951"
+    },
+    {
+        "symbol": "AMCR",
+        "name": "Amcor",
+        "cik": "0001748790"
+    },
+    {
+        "symbol": "AMD",
+        "name": "Advanced Micro Devices",
+        "cik": "0000002488"
+    },
+    {
+        "symbol": "AME",
+        "name": "Ametek",
+        "cik": "0001037868"
+    },
+    {
+        "symbol": "AMGN",
+        "name": "Amgen",
+        "cik": "0000318154"
+    },
+    {
+        "symbol": "AMP",
+        "name": "Ameriprise Financial",
+        "cik": "0000820027"
+    },
+    {
+        "symbol": "AMT",
+        "name": "American Tower",
+        "cik": "0001053507"
+    },
+    {
+        "symbol": "AMZN",
+        "name": "Amazon",
+        "cik": "0001018724"
+    },
+    {
+        "symbol": "ANET",
+        "name": "Arista Networks",
+        "cik": "0001596532"
+    },
+    {
+        "symbol": "AON",
+        "name": "Aon plc",
+        "cik": "0000315293"
+    },
+    {
+        "symbol": "AOS",
+        "name": "A. O. Smith",
+        "cik": "0000091142"
+    },
+    {
+        "symbol": "APA",
+        "name": "APA Corporation",
+        "cik": "0001841666"
+    },
+    {
+        "symbol": "APD",
+        "name": "Air Products",
+        "cik": "0000002969"
+    },
+    {
+        "symbol": "APH",
+        "name": "Amphenol",
+        "cik": "0000820313"
+    },
+    {
+        "symbol": "APO",
+        "name": "Apollo Global Management",
+        "cik": "0001858681"
+    },
+    {
+        "symbol": "APTV",
+        "name": "Aptiv",
+        "cik": "0001521332"
+    },
+    {
+        "symbol": "ARE",
+        "name": "Alexandria Real Estate Equities",
+        "cik": "0001035443"
+    },
+    {
+        "symbol": "ATO",
+        "name": "Atmos Energy",
+        "cik": "0000731802"
+    },
+    {
+        "symbol": "AVB",
+        "name": "AvalonBay Communities",
+        "cik": "0000915912"
+    },
+    {
+        "symbol": "AVGO",
+        "name": "Broadcom",
+        "cik": "0001730168"
+    },
+    {
+        "symbol": "AVY",
+        "name": "Avery Dennison",
+        "cik": "0000008818"
+    },
+    {
+        "symbol": "AWK",
+        "name": "American Water Works",
+        "cik": "0001410636"
+    },
+    {
+        "symbol": "AXON",
+        "name": "Axon Enterprise",
+        "cik": "0001069183"
+    },
+    {
+        "symbol": "AXP",
+        "name": "American Express",
+        "cik": "0000004962"
+    },
+    {
+        "symbol": "AZO",
+        "name": "AutoZone",
+        "cik": "0000866787"
+    },
+    {
+        "symbol": "BA",
+        "name": "Boeing",
+        "cik": "0000012927"
+    },
+    {
+        "symbol": "BAC",
+        "name": "Bank of America",
+        "cik": "0000070858"
+    },
+    {
+        "symbol": "BALL",
+        "name": "Ball Corporation",
+        "cik": "0000009389"
+    },
+    {
+        "symbol": "BAX",
+        "name": "Baxter International",
+        "cik": "0000010456"
+    },
+    {
+        "symbol": "BBY",
+        "name": "Best Buy",
+        "cik": "0000764478"
+    },
+    {
+        "symbol": "BDX",
+        "name": "Becton Dickinson",
+        "cik": "0000010795"
+    },
+    {
+        "symbol": "BEN",
+        "name": "Franklin Resources",
+        "cik": "0000038777"
+    },
+    {
+        "symbol": "BF.B",
+        "name": "Brown\u2013Forman",
+        "cik": "0000014693"
+    },
+    {
+        "symbol": "BG",
+        "name": "Bunge Global",
+        "cik": "0001996862"
+    },
+    {
+        "symbol": "BIIB",
+        "name": "Biogen",
+        "cik": "0000875045"
+    },
+    {
+        "symbol": "BK",
+        "name": "BNY Mellon",
+        "cik": "0001390777"
+    },
+    {
+        "symbol": "BKNG",
+        "name": "Booking Holdings",
+        "cik": "0001075531"
+    },
+    {
+        "symbol": "BKR",
+        "name": "Baker Hughes",
+        "cik": "0001701605"
+    },
+    {
+        "symbol": "BLDR",
+        "name": "Builders FirstSource",
+        "cik": "0001316835"
+    },
+    {
+        "symbol": "BLK",
+        "name": "BlackRock",
+        "cik": "0002012383"
+    },
+    {
+        "symbol": "BMY",
+        "name": "Bristol Myers Squibb",
+        "cik": "0000014272"
+    },
+    {
+        "symbol": "BR",
+        "name": "Broadridge Financial Solutions",
+        "cik": "0001383312"
+    },
+    {
+        "symbol": "BRK.B",
+        "name": "Berkshire Hathaway",
+        "cik": "0001067983"
+    },
+    {
+        "symbol": "BRO",
+        "name": "Brown & Brown",
+        "cik": "0000079282"
+    },
+    {
+        "symbol": "BSX",
+        "name": "Boston Scientific",
+        "cik": "0000885725"
+    },
+    {
+        "symbol": "BX",
+        "name": "Blackstone Inc.",
+        "cik": "0001393818"
+    },
+    {
+        "symbol": "BXP",
+        "name": "BXP, Inc.",
+        "cik": "0001037540"
+    },
+    {
+        "symbol": "C",
+        "name": "Citigroup",
+        "cik": "0000831001"
+    },
+    {
+        "symbol": "CAG",
+        "name": "Conagra Brands",
+        "cik": "0000023217"
+    },
+    {
+        "symbol": "CAH",
+        "name": "Cardinal Health",
+        "cik": "0000721371"
+    },
+    {
+        "symbol": "CARR",
+        "name": "Carrier Global",
+        "cik": "0001783180"
+    },
+    {
+        "symbol": "CAT",
+        "name": "Caterpillar Inc.",
+        "cik": "0000018230"
+    },
+    {
+        "symbol": "CB",
+        "name": "Chubb Limited",
+        "cik": "0000896159"
+    },
+    {
+        "symbol": "CBOE",
+        "name": "Cboe Global Markets",
+        "cik": "0001374310"
+    },
+    {
+        "symbol": "CBRE",
+        "name": "CBRE Group",
+        "cik": "0001138118"
+    },
+    {
+        "symbol": "CCI",
+        "name": "Crown Castle",
+        "cik": "0001051470"
+    },
+    {
+        "symbol": "CCL",
+        "name": "Carnival",
+        "cik": "0000815097"
+    },
+    {
+        "symbol": "CDNS",
+        "name": "Cadence Design Systems",
+        "cik": "0000813672"
+    },
+    {
+        "symbol": "CDW",
+        "name": "CDW Corporation",
+        "cik": "0001402057"
+    },
+    {
+        "symbol": "CEG",
+        "name": "Constellation Energy",
+        "cik": "0001868275"
+    },
+    {
+        "symbol": "CF",
+        "name": "CF Industries",
+        "cik": "0001324404"
+    },
+    {
+        "symbol": "CFG",
+        "name": "Citizens Financial Group",
+        "cik": "0000759944"
+    },
+    {
+        "symbol": "CHD",
+        "name": "Church & Dwight",
+        "cik": "0000313927"
+    },
+    {
+        "symbol": "CHRW",
+        "name": "C.H. Robinson",
+        "cik": "0001043277"
+    },
+    {
+        "symbol": "CHTR",
+        "name": "Charter Communications",
+        "cik": "0001091667"
+    },
+    {
+        "symbol": "CI",
+        "name": "Cigna",
+        "cik": "0001739940"
+    },
+    {
+        "symbol": "CINF",
+        "name": "Cincinnati Financial",
+        "cik": "0000020286"
+    },
+    {
+        "symbol": "CL",
+        "name": "Colgate-Palmolive",
+        "cik": "0000021665"
+    },
+    {
+        "symbol": "CLX",
+        "name": "Clorox",
+        "cik": "0000021076"
+    },
+    {
+        "symbol": "CMCSA",
+        "name": "Comcast",
+        "cik": "0001166691"
+    },
+    {
+        "symbol": "CME",
+        "name": "CME Group",
+        "cik": "0001156375"
+    },
+    {
+        "symbol": "CMG",
+        "name": "Chipotle Mexican Grill",
+        "cik": "0001058090"
+    },
+    {
+        "symbol": "CMI",
+        "name": "Cummins",
+        "cik": "0000026172"
+    },
+    {
+        "symbol": "CMS",
+        "name": "CMS Energy",
+        "cik": "0000811156"
+    },
+    {
+        "symbol": "CNC",
+        "name": "Centene Corporation",
+        "cik": "0001071739"
+    },
+    {
+        "symbol": "CNP",
+        "name": "CenterPoint Energy",
+        "cik": "0001130310"
+    },
+    {
+        "symbol": "COF",
+        "name": "Capital One",
+        "cik": "0000927628"
+    },
+    {
+        "symbol": "COIN",
+        "name": "Coinbase",
+        "cik": "0001679788"
+    },
+    {
+        "symbol": "COO",
+        "name": "Cooper Companies (The)",
+        "cik": "0000711404"
+    },
+    {
+        "symbol": "COP",
+        "name": "ConocoPhillips",
+        "cik": "0001163165"
+    },
+    {
+        "symbol": "COR",
+        "name": "Cencora",
+        "cik": "0001140859"
+    },
+    {
+        "symbol": "COST",
+        "name": "Costco",
+        "cik": "0000909832"
+    },
+    {
+        "symbol": "CPAY",
+        "name": "Corpay",
+        "cik": "0001175454"
+    },
+    {
+        "symbol": "CPB",
+        "name": "Campbell's Company (The)",
+        "cik": "0000016732"
+    },
+    {
+        "symbol": "CPRT",
+        "name": "Copart",
+        "cik": "0000900075"
+    },
+    {
+        "symbol": "CPT",
+        "name": "Camden Property Trust",
+        "cik": "0000906345"
+    },
+    {
+        "symbol": "CRL",
+        "name": "Charles River Laboratories",
+        "cik": "0001100682"
+    },
+    {
+        "symbol": "CRM",
+        "name": "Salesforce",
+        "cik": "0001108524"
+    },
+    {
+        "symbol": "CRWD",
+        "name": "CrowdStrike",
+        "cik": "0001535527"
+    },
+    {
+        "symbol": "CSCO",
+        "name": "Cisco",
+        "cik": "0000858877"
+    },
+    {
+        "symbol": "CSGP",
+        "name": "CoStar Group",
+        "cik": "0001057352"
+    },
+    {
+        "symbol": "CSX",
+        "name": "CSX Corporation",
+        "cik": "0000277948"
+    },
+    {
+        "symbol": "CTAS",
+        "name": "Cintas",
+        "cik": "0000723254"
+    },
+    {
+        "symbol": "CTRA",
+        "name": "Coterra",
+        "cik": "0000858470"
+    },
+    {
+        "symbol": "CTSH",
+        "name": "Cognizant",
+        "cik": "0001058290"
+    },
+    {
+        "symbol": "CTVA",
+        "name": "Corteva",
+        "cik": "0001755672"
+    },
+    {
+        "symbol": "CVS",
+        "name": "CVS Health",
+        "cik": "0000064803"
+    },
+    {
+        "symbol": "CVX",
+        "name": "Chevron Corporation",
+        "cik": "0000093410"
+    },
+    {
+        "symbol": "CZR",
+        "name": "Caesars Entertainment",
+        "cik": "0001590895"
+    },
+    {
+        "symbol": "D",
+        "name": "Dominion Energy",
+        "cik": "0000715957"
+    },
+    {
+        "symbol": "DAL",
+        "name": "Delta Air Lines",
+        "cik": "0000027904"
+    },
+    {
+        "symbol": "DASH",
+        "name": "DoorDash",
+        "cik": "0001792789"
+    },
+    {
+        "symbol": "DAY",
+        "name": "Dayforce",
+        "cik": "0001725057"
+    },
+    {
+        "symbol": "DD",
+        "name": "DuPont",
+        "cik": "0001666700"
+    },
+    {
+        "symbol": "DDOG",
+        "name": "Datadog",
+        "cik": "0001561550"
+    },
+    {
+        "symbol": "DE",
+        "name": "Deere & Company",
+        "cik": "0000315189"
+    },
+    {
+        "symbol": "DECK",
+        "name": "Deckers Brands",
+        "cik": "0000910521"
+    },
+    {
+        "symbol": "DELL",
+        "name": "Dell Technologies",
+        "cik": "0001571996"
+    },
+    {
+        "symbol": "DG",
+        "name": "Dollar General",
+        "cik": "0000029534"
+    },
+    {
+        "symbol": "DGX",
+        "name": "Quest Diagnostics",
+        "cik": "0001022079"
+    },
+    {
+        "symbol": "DHI",
+        "name": "D. R. Horton",
+        "cik": "0000882184"
+    },
+    {
+        "symbol": "DHR",
+        "name": "Danaher Corporation",
+        "cik": "0000313616"
+    },
+    {
+        "symbol": "DIS",
+        "name": "Walt Disney Company (The)",
+        "cik": "0001744489"
+    },
+    {
+        "symbol": "DLR",
+        "name": "Digital Realty",
+        "cik": "0001297996"
+    },
+    {
+        "symbol": "DLTR",
+        "name": "Dollar Tree",
+        "cik": "0000935703"
+    },
+    {
+        "symbol": "DOC",
+        "name": "Healthpeak Properties",
+        "cik": "0000765880"
+    },
+    {
+        "symbol": "DOV",
+        "name": "Dover Corporation",
+        "cik": "0000029905"
+    },
+    {
+        "symbol": "DOW",
+        "name": "Dow Inc.",
+        "cik": "0001751788"
+    },
+    {
+        "symbol": "DPZ",
+        "name": "Domino's",
+        "cik": "0001286681"
+    },
+    {
+        "symbol": "DRI",
+        "name": "Darden Restaurants",
+        "cik": "0000940944"
+    },
+    {
+        "symbol": "DTE",
+        "name": "DTE Energy",
+        "cik": "0000936340"
+    },
+    {
+        "symbol": "DUK",
+        "name": "Duke Energy",
+        "cik": "0001326160"
+    },
+    {
+        "symbol": "DVA",
+        "name": "DaVita",
+        "cik": "0000927066"
+    },
+    {
+        "symbol": "DVN",
+        "name": "Devon Energy",
+        "cik": "0001090012"
+    },
+    {
+        "symbol": "DXCM",
+        "name": "Dexcom",
+        "cik": "0001093557"
+    },
+    {
+        "symbol": "EA",
+        "name": "Electronic Arts",
+        "cik": "0000712515"
+    },
+    {
+        "symbol": "EBAY",
+        "name": "eBay Inc.",
+        "cik": "0001065088"
+    },
+    {
+        "symbol": "ECL",
+        "name": "Ecolab",
+        "cik": "0000031462"
+    },
+    {
+        "symbol": "ED",
+        "name": "Consolidated Edison",
+        "cik": "0001047862"
+    },
+    {
+        "symbol": "EFX",
+        "name": "Equifax",
+        "cik": "0000033185"
+    },
+    {
+        "symbol": "EG",
+        "name": "Everest Group",
+        "cik": "0001095073"
+    },
+    {
+        "symbol": "EIX",
+        "name": "Edison International",
+        "cik": "0000827052"
+    },
+    {
+        "symbol": "EL",
+        "name": "Est\u00e9e Lauder Companies (The)",
+        "cik": "0001001250"
+    },
+    {
+        "symbol": "ELV",
+        "name": "Elevance Health",
+        "cik": "0001156039"
+    },
+    {
+        "symbol": "EMN",
+        "name": "Eastman Chemical Company",
+        "cik": "0000915389"
+    },
+    {
+        "symbol": "EMR",
+        "name": "Emerson Electric",
+        "cik": "0000032604"
+    },
+    {
+        "symbol": "ENPH",
+        "name": "Enphase Energy",
+        "cik": "0001463101"
+    },
+    {
+        "symbol": "EOG",
+        "name": "EOG Resources",
+        "cik": "0000821189"
+    },
+    {
+        "symbol": "EPAM",
+        "name": "EPAM Systems",
+        "cik": "0001352010"
+    },
+    {
+        "symbol": "EQIX",
+        "name": "Equinix",
+        "cik": "0001101239"
+    },
+    {
+        "symbol": "EQR",
+        "name": "Equity Residential",
+        "cik": "0000906107"
+    },
+    {
+        "symbol": "EQT",
+        "name": "EQT Corporation",
+        "cik": "0000033213"
+    },
+    {
+        "symbol": "ERIE",
+        "name": "Erie Indemnity",
+        "cik": "0000922621"
+    },
+    {
+        "symbol": "ES",
+        "name": "Eversource Energy",
+        "cik": "0000072741"
+    },
+    {
+        "symbol": "ESS",
+        "name": "Essex Property Trust",
+        "cik": "0000920522"
+    },
+    {
+        "symbol": "ETN",
+        "name": "Eaton Corporation",
+        "cik": "0001551182"
+    },
+    {
+        "symbol": "ETR",
+        "name": "Entergy",
+        "cik": "0000065984"
+    },
+    {
+        "symbol": "EVRG",
+        "name": "Evergy",
+        "cik": "0001711269"
+    },
+    {
+        "symbol": "EW",
+        "name": "Edwards Lifesciences",
+        "cik": "0001099800"
+    },
+    {
+        "symbol": "EXC",
+        "name": "Exelon",
+        "cik": "0001109357"
+    },
+    {
+        "symbol": "EXE",
+        "name": "Expand Energy",
+        "cik": "0000895126"
+    },
+    {
+        "symbol": "EXPD",
+        "name": "Expeditors International",
+        "cik": "0000746515"
+    },
+    {
+        "symbol": "EXPE",
+        "name": "Expedia Group",
+        "cik": "0001324424"
+    },
+    {
+        "symbol": "EXR",
+        "name": "Extra Space Storage",
+        "cik": "0001289490"
+    },
+    {
+        "symbol": "F",
+        "name": "Ford Motor Company",
+        "cik": "0000037996"
+    },
+    {
+        "symbol": "FANG",
+        "name": "Diamondback Energy",
+        "cik": "0001539838"
+    },
+    {
+        "symbol": "FAST",
+        "name": "Fastenal",
+        "cik": "0000815556"
+    },
+    {
+        "symbol": "FCX",
+        "name": "Freeport-McMoRan",
+        "cik": "0000831259"
+    },
+    {
+        "symbol": "FDS",
+        "name": "FactSet",
+        "cik": "0001013237"
+    },
+    {
+        "symbol": "FDX",
+        "name": "FedEx",
+        "cik": "0001048911"
+    },
+    {
+        "symbol": "FE",
+        "name": "FirstEnergy",
+        "cik": "0001031296"
+    },
+    {
+        "symbol": "FFIV",
+        "name": "F5, Inc.",
+        "cik": "0001048695"
+    },
+    {
+        "symbol": "FI",
+        "name": "Fiserv",
+        "cik": "0000798354"
+    },
+    {
+        "symbol": "FICO",
+        "name": "Fair Isaac",
+        "cik": "0000814547"
+    },
+    {
+        "symbol": "FIS",
+        "name": "Fidelity National Information Services",
+        "cik": "0001136893"
+    },
+    {
+        "symbol": "FITB",
+        "name": "Fifth Third Bancorp",
+        "cik": "0000035527"
+    },
+    {
+        "symbol": "FOX",
+        "name": "Fox Corporation (Class B)",
+        "cik": "0001754301"
+    },
+    {
+        "symbol": "FOXA",
+        "name": "Fox Corporation (Class A)",
+        "cik": "0001754301"
+    },
+    {
+        "symbol": "FRT",
+        "name": "Federal Realty Investment Trust",
+        "cik": "0000034903"
+    },
+    {
+        "symbol": "FSLR",
+        "name": "First Solar",
+        "cik": "0001274494"
+    },
+    {
+        "symbol": "FTNT",
+        "name": "Fortinet",
+        "cik": "0001262039"
+    },
+    {
+        "symbol": "FTV",
+        "name": "Fortive",
+        "cik": "0001659166"
+    },
+    {
+        "symbol": "GD",
+        "name": "General Dynamics",
+        "cik": "0000040533"
+    },
+    {
+        "symbol": "GDDY",
+        "name": "GoDaddy",
+        "cik": "0001609711"
+    },
+    {
+        "symbol": "GE",
+        "name": "GE Aerospace",
+        "cik": "0000040545"
+    },
+    {
+        "symbol": "GEHC",
+        "name": "GE HealthCare",
+        "cik": "0001932393"
+    },
+    {
+        "symbol": "GEN",
+        "name": "Gen Digital",
+        "cik": "0000849399"
+    },
+    {
+        "symbol": "GEV",
+        "name": "GE Vernova",
+        "cik": "0001996810"
+    },
+    {
+        "symbol": "GILD",
+        "name": "Gilead Sciences",
+        "cik": "0000882095"
+    },
+    {
+        "symbol": "GIS",
+        "name": "General Mills",
+        "cik": "0000040704"
+    },
+    {
+        "symbol": "GL",
+        "name": "Globe Life",
+        "cik": "0000320335"
+    },
+    {
+        "symbol": "GLW",
+        "name": "Corning Inc.",
+        "cik": "0000024741"
+    },
+    {
+        "symbol": "GM",
+        "name": "General Motors",
+        "cik": "0001467858"
+    },
+    {
+        "symbol": "GNRC",
+        "name": "Generac",
+        "cik": "0001474735"
+    },
+    {
+        "symbol": "GOOG",
+        "name": "Alphabet Inc. (Class C)",
+        "cik": "0001652044"
+    },
+    {
+        "symbol": "GOOGL",
+        "name": "Alphabet Inc. (Class A)",
+        "cik": "0001652044"
+    },
+    {
+        "symbol": "GPC",
+        "name": "Genuine Parts Company",
+        "cik": "0000040987"
+    },
+    {
+        "symbol": "GPN",
+        "name": "Global Payments",
+        "cik": "0001123360"
+    },
+    {
+        "symbol": "GRMN",
+        "name": "Garmin",
+        "cik": "0001121788"
+    },
+    {
+        "symbol": "GS",
+        "name": "Goldman Sachs",
+        "cik": "0000886982"
+    },
+    {
+        "symbol": "GWW",
+        "name": "W. W. Grainger",
+        "cik": "0000277135"
+    },
+    {
+        "symbol": "HAL",
+        "name": "Halliburton",
+        "cik": "0000045012"
+    },
+    {
+        "symbol": "HAS",
+        "name": "Hasbro",
+        "cik": "0000046080"
+    },
+    {
+        "symbol": "HBAN",
+        "name": "Huntington Bancshares",
+        "cik": "0000049196"
+    },
+    {
+        "symbol": "HCA",
+        "name": "HCA Healthcare",
+        "cik": "0000860730"
+    },
+    {
+        "symbol": "HD",
+        "name": "Home Depot (The)",
+        "cik": "0000354950"
+    },
+    {
+        "symbol": "HIG",
+        "name": "Hartford (The)",
+        "cik": "0000874766"
+    },
+    {
+        "symbol": "HII",
+        "name": "Huntington Ingalls Industries",
+        "cik": "0001501585"
+    },
+    {
+        "symbol": "HLT",
+        "name": "Hilton Worldwide",
+        "cik": "0001585689"
+    },
+    {
+        "symbol": "HOLX",
+        "name": "Hologic",
+        "cik": "0000859737"
+    },
+    {
+        "symbol": "HON",
+        "name": "Honeywell",
+        "cik": "0000773840"
+    },
+    {
+        "symbol": "HPE",
+        "name": "Hewlett Packard Enterprise",
+        "cik": "0001645590"
+    },
+    {
+        "symbol": "HPQ",
+        "name": "HP Inc.",
+        "cik": "0000047217"
+    },
+    {
+        "symbol": "HRL",
+        "name": "Hormel Foods",
+        "cik": "0000048465"
+    },
+    {
+        "symbol": "HSIC",
+        "name": "Henry Schein",
+        "cik": "0001000228"
+    },
+    {
+        "symbol": "HST",
+        "name": "Host Hotels & Resorts",
+        "cik": "0001070750"
+    },
+    {
+        "symbol": "HSY",
+        "name": "Hershey Company (The)",
+        "cik": "0000047111"
+    },
+    {
+        "symbol": "HUBB",
+        "name": "Hubbell Incorporated",
+        "cik": "0000048898"
+    },
+    {
+        "symbol": "HUM",
+        "name": "Humana",
+        "cik": "0000049071"
+    },
+    {
+        "symbol": "HWM",
+        "name": "Howmet Aerospace",
+        "cik": "0000004281"
+    },
+    {
+        "symbol": "IBM",
+        "name": "IBM",
+        "cik": "0000051143"
+    },
+    {
+        "symbol": "ICE",
+        "name": "Intercontinental Exchange",
+        "cik": "0001571949"
+    },
+    {
+        "symbol": "IDXX",
+        "name": "Idexx Laboratories",
+        "cik": "0000874716"
+    },
+    {
+        "symbol": "IEX",
+        "name": "IDEX Corporation",
+        "cik": "0000832101"
+    },
+    {
+        "symbol": "IFF",
+        "name": "International Flavors & Fragrances",
+        "cik": "0000051253"
+    },
+    {
+        "symbol": "INCY",
+        "name": "Incyte",
+        "cik": "0000879169"
+    },
+    {
+        "symbol": "INTC",
+        "name": "Intel",
+        "cik": "0000050863"
+    },
+    {
+        "symbol": "INTU",
+        "name": "Intuit",
+        "cik": "0000896878"
+    },
+    {
+        "symbol": "INVH",
+        "name": "Invitation Homes",
+        "cik": "0001687229"
+    },
+    {
+        "symbol": "IP",
+        "name": "International Paper",
+        "cik": "0000051434"
+    },
+    {
+        "symbol": "IPG",
+        "name": "Interpublic Group of Companies (The)",
+        "cik": "0000051644"
+    },
+    {
+        "symbol": "IQV",
+        "name": "IQVIA",
+        "cik": "0001478242"
+    },
+    {
+        "symbol": "IR",
+        "name": "Ingersoll Rand",
+        "cik": "0001699150"
+    },
+    {
+        "symbol": "IRM",
+        "name": "Iron Mountain",
+        "cik": "0001020569"
+    },
+    {
+        "symbol": "ISRG",
+        "name": "Intuitive Surgical",
+        "cik": "0001035267"
+    },
+    {
+        "symbol": "IT",
+        "name": "Gartner",
+        "cik": "0000749251"
+    },
+    {
+        "symbol": "ITW",
+        "name": "Illinois Tool Works",
+        "cik": "0000049826"
+    },
+    {
+        "symbol": "IVZ",
+        "name": "Invesco",
+        "cik": "0000914208"
+    },
+    {
+        "symbol": "J",
+        "name": "Jacobs Solutions",
+        "cik": "0000052988"
+    },
+    {
+        "symbol": "JBHT",
+        "name": "J.B. Hunt",
+        "cik": "0000728535"
+    },
+    {
+        "symbol": "JBL",
+        "name": "Jabil",
+        "cik": "0000898293"
+    },
+    {
+        "symbol": "JCI",
+        "name": "Johnson Controls",
+        "cik": "0000833444"
+    },
+    {
+        "symbol": "JKHY",
+        "name": "Jack Henry & Associates",
+        "cik": "0000779152"
+    },
+    {
+        "symbol": "JNJ",
+        "name": "Johnson & Johnson",
+        "cik": "0000200406"
+    },
+    {
+        "symbol": "JPM",
+        "name": "JPMorgan Chase",
+        "cik": "0000019617"
+    },
+    {
+        "symbol": "K",
+        "name": "Kellanova",
+        "cik": "0000055067"
+    },
+    {
+        "symbol": "KDP",
+        "name": "Keurig Dr Pepper",
+        "cik": "0001418135"
+    },
+    {
+        "symbol": "KEY",
+        "name": "KeyCorp",
+        "cik": "0000091576"
+    },
+    {
+        "symbol": "KEYS",
+        "name": "Keysight Technologies",
+        "cik": "0001601046"
+    },
+    {
+        "symbol": "KHC",
+        "name": "Kraft Heinz",
+        "cik": "0001637459"
+    },
+    {
+        "symbol": "KIM",
+        "name": "Kimco Realty",
+        "cik": "0000879101"
+    },
+    {
+        "symbol": "KKR",
+        "name": "KKR & Co.",
+        "cik": "0001404912"
+    },
+    {
+        "symbol": "KLAC",
+        "name": "KLA Corporation",
+        "cik": "0000319201"
+    },
+    {
+        "symbol": "KMB",
+        "name": "Kimberly-Clark",
+        "cik": "0000055785"
+    },
+    {
+        "symbol": "KMI",
+        "name": "Kinder Morgan",
+        "cik": "0001506307"
+    },
+    {
+        "symbol": "KMX",
+        "name": "CarMax",
+        "cik": "0001170010"
+    },
+    {
+        "symbol": "KO",
+        "name": "Coca-Cola Company (The)",
+        "cik": "0000021344"
+    },
+    {
+        "symbol": "KR",
+        "name": "Kroger",
+        "cik": "0000056873"
+    },
+    {
+        "symbol": "KVUE",
+        "name": "Kenvue",
+        "cik": "0001944048"
+    },
+    {
+        "symbol": "L",
+        "name": "Loews Corporation",
+        "cik": "0000060086"
+    },
+    {
+        "symbol": "LDOS",
+        "name": "Leidos",
+        "cik": "0001336920"
+    },
+    {
+        "symbol": "LEN",
+        "name": "Lennar",
+        "cik": "0000920760"
+    },
+    {
+        "symbol": "LH",
+        "name": "Labcorp",
+        "cik": "0000920148"
+    },
+    {
+        "symbol": "LHX",
+        "name": "L3Harris",
+        "cik": "0000202058"
+    },
+    {
+        "symbol": "LII",
+        "name": "Lennox International",
+        "cik": "0001069202"
+    },
+    {
+        "symbol": "LIN",
+        "name": "Linde plc",
+        "cik": "0001707925"
+    },
+    {
+        "symbol": "LKQ",
+        "name": "LKQ Corporation",
+        "cik": "0001065696"
+    },
+    {
+        "symbol": "LLY",
+        "name": "Lilly (Eli)",
+        "cik": "0000059478"
+    },
+    {
+        "symbol": "LMT",
+        "name": "Lockheed Martin",
+        "cik": "0000936468"
+    },
+    {
+        "symbol": "LNT",
+        "name": "Alliant Energy",
+        "cik": "0000352541"
+    },
+    {
+        "symbol": "LOW",
+        "name": "Lowe's",
+        "cik": "0000060667"
+    },
+    {
+        "symbol": "LRCX",
+        "name": "Lam Research",
+        "cik": "0000707549"
+    },
+    {
+        "symbol": "LULU",
+        "name": "Lululemon Athletica",
+        "cik": "0001397187"
+    },
+    {
+        "symbol": "LUV",
+        "name": "Southwest Airlines",
+        "cik": "0000092380"
+    },
+    {
+        "symbol": "LVS",
+        "name": "Las Vegas Sands",
+        "cik": "0001300514"
+    },
+    {
+        "symbol": "LW",
+        "name": "Lamb Weston",
+        "cik": "0001679273"
+    },
+    {
+        "symbol": "LYB",
+        "name": "LyondellBasell",
+        "cik": "0001489393"
+    },
+    {
+        "symbol": "LYV",
+        "name": "Live Nation Entertainment",
+        "cik": "0001335258"
+    },
+    {
+        "symbol": "MA",
+        "name": "Mastercard",
+        "cik": "0001141391"
+    },
+    {
+        "symbol": "MAA",
+        "name": "Mid-America Apartment Communities",
+        "cik": "0000912595"
+    },
+    {
+        "symbol": "MAR",
+        "name": "Marriott International",
+        "cik": "0001048286"
+    },
+    {
+        "symbol": "MAS",
+        "name": "Masco",
+        "cik": "0000062996"
+    },
+    {
+        "symbol": "MCD",
+        "name": "McDonald's",
+        "cik": "0000063908"
+    },
+    {
+        "symbol": "MCHP",
+        "name": "Microchip Technology",
+        "cik": "0000827054"
+    },
+    {
+        "symbol": "MCK",
+        "name": "McKesson Corporation",
+        "cik": "0000927653"
+    },
+    {
+        "symbol": "MCO",
+        "name": "Moody's Corporation",
+        "cik": "0001059556"
+    },
+    {
+        "symbol": "MDLZ",
+        "name": "Mondelez International",
+        "cik": "0001103982"
+    },
+    {
+        "symbol": "MDT",
+        "name": "Medtronic",
+        "cik": "0001613103"
+    },
+    {
+        "symbol": "MET",
+        "name": "MetLife",
+        "cik": "0001099219"
+    },
+    {
+        "symbol": "META",
+        "name": "Meta Platforms",
+        "cik": "0001326801"
+    },
+    {
+        "symbol": "MGM",
+        "name": "MGM Resorts",
+        "cik": "0000789570"
+    },
+    {
+        "symbol": "MHK",
+        "name": "Mohawk Industries",
+        "cik": "0000851968"
+    },
+    {
+        "symbol": "MKC",
+        "name": "McCormick & Company",
+        "cik": "0000063754"
+    },
+    {
+        "symbol": "MKTX",
+        "name": "MarketAxess",
+        "cik": "0001278021"
+    },
+    {
+        "symbol": "MLM",
+        "name": "Martin Marietta Materials",
+        "cik": "0000916076"
+    },
+    {
+        "symbol": "MMC",
+        "name": "Marsh McLennan",
+        "cik": "0000062709"
+    },
+    {
+        "symbol": "MMM",
+        "name": "3M",
+        "cik": "0000066740"
+    },
+    {
+        "symbol": "MNST",
+        "name": "Monster Beverage",
+        "cik": "0000865752"
+    },
+    {
+        "symbol": "MO",
+        "name": "Altria",
+        "cik": "0000764180"
+    },
+    {
+        "symbol": "MOH",
+        "name": "Molina Healthcare",
+        "cik": "0001179929"
+    },
+    {
+        "symbol": "MOS",
+        "name": "Mosaic Company (The)",
+        "cik": "0001285785"
+    },
+    {
+        "symbol": "MPC",
+        "name": "Marathon Petroleum",
+        "cik": "0001510295"
+    },
+    {
+        "symbol": "MPWR",
+        "name": "Monolithic Power Systems",
+        "cik": "0001280452"
+    },
+    {
+        "symbol": "MRK",
+        "name": "Merck & Co.",
+        "cik": "0000310158"
+    },
+    {
+        "symbol": "MRNA",
+        "name": "Moderna",
+        "cik": "0001682852"
+    },
+    {
+        "symbol": "MS",
+        "name": "Morgan Stanley",
+        "cik": "0000895421"
+    },
+    {
+        "symbol": "MSCI",
+        "name": "MSCI Inc.",
+        "cik": "0001408198"
+    },
+    {
+        "symbol": "MSFT",
+        "name": "Microsoft",
+        "cik": "0000789019"
+    },
+    {
+        "symbol": "MSI",
+        "name": "Motorola Solutions",
+        "cik": "0000068505"
+    },
+    {
+        "symbol": "MTB",
+        "name": "M&T Bank",
+        "cik": "0000036270"
+    },
+    {
+        "symbol": "MTCH",
+        "name": "Match Group",
+        "cik": "0000891103"
+    },
+    {
+        "symbol": "MTD",
+        "name": "Mettler Toledo",
+        "cik": "0001037646"
+    },
+    {
+        "symbol": "MU",
+        "name": "Micron Technology",
+        "cik": "0000723125"
+    },
+    {
+        "symbol": "NCLH",
+        "name": "Norwegian Cruise Line Holdings",
+        "cik": "0001513761"
+    },
+    {
+        "symbol": "NDAQ",
+        "name": "Nasdaq, Inc.",
+        "cik": "0001120193"
+    },
+    {
+        "symbol": "NDSN",
+        "name": "Nordson Corporation",
+        "cik": "0000072331"
+    },
+    {
+        "symbol": "NEE",
+        "name": "NextEra Energy",
+        "cik": "0000753308"
+    },
+    {
+        "symbol": "NEM",
+        "name": "Newmont",
+        "cik": "0001164727"
+    },
+    {
+        "symbol": "NFLX",
+        "name": "Netflix",
+        "cik": "0001065280"
+    },
+    {
+        "symbol": "NI",
+        "name": "NiSource",
+        "cik": "0001111711"
+    },
+    {
+        "symbol": "NKE",
+        "name": "Nike, Inc.",
+        "cik": "0000320187"
+    },
+    {
+        "symbol": "NOC",
+        "name": "Northrop Grumman",
+        "cik": "0001133421"
+    },
+    {
+        "symbol": "NOW",
+        "name": "ServiceNow",
+        "cik": "0001373715"
+    },
+    {
+        "symbol": "NRG",
+        "name": "NRG Energy",
+        "cik": "0001013871"
+    },
+    {
+        "symbol": "NSC",
+        "name": "Norfolk Southern",
+        "cik": "0000702165"
+    },
+    {
+        "symbol": "NTAP",
+        "name": "NetApp",
+        "cik": "0001002047"
+    },
+    {
+        "symbol": "NTRS",
+        "name": "Northern Trust",
+        "cik": "0000073124"
+    },
+    {
+        "symbol": "NUE",
+        "name": "Nucor",
+        "cik": "0000073309"
+    },
+    {
+        "symbol": "NVDA",
+        "name": "Nvidia",
+        "cik": "0001045810"
+    },
+    {
+        "symbol": "NVR",
+        "name": "NVR, Inc.",
+        "cik": "0000906163"
+    },
+    {
+        "symbol": "NWS",
+        "name": "News Corp (Class B)",
+        "cik": "0001564708"
+    },
+    {
+        "symbol": "NWSA",
+        "name": "News Corp (Class A)",
+        "cik": "0001564708"
+    },
+    {
+        "symbol": "NXPI",
+        "name": "NXP Semiconductors",
+        "cik": "0001413447"
+    },
+    {
+        "symbol": "O",
+        "name": "Realty Income",
+        "cik": "0000726728"
+    },
+    {
+        "symbol": "ODFL",
+        "name": "Old Dominion",
+        "cik": "0000878927"
+    },
+    {
+        "symbol": "OKE",
+        "name": "Oneok",
+        "cik": "0001039684"
+    },
+    {
+        "symbol": "OMC",
+        "name": "Omnicom Group",
+        "cik": "0000029989"
+    },
+    {
+        "symbol": "ON",
+        "name": "ON Semiconductor",
+        "cik": "0001097864"
+    },
+    {
+        "symbol": "ORCL",
+        "name": "Oracle Corporation",
+        "cik": "0001341439"
+    },
+    {
+        "symbol": "ORLY",
+        "name": "O\u2019Reilly Automotive",
+        "cik": "0000898173"
+    },
+    {
+        "symbol": "OTIS",
+        "name": "Otis Worldwide",
+        "cik": "0001781335"
+    },
+    {
+        "symbol": "OXY",
+        "name": "Occidental Petroleum",
+        "cik": "0000797468"
+    },
+    {
+        "symbol": "PANW",
+        "name": "Palo Alto Networks",
+        "cik": "0001327567"
+    },
+    {
+        "symbol": "PAYC",
+        "name": "Paycom",
+        "cik": "0001590955"
+    },
+    {
+        "symbol": "PAYX",
+        "name": "Paychex",
+        "cik": "0000723531"
+    },
+    {
+        "symbol": "PCAR",
+        "name": "Paccar",
+        "cik": "0000075362"
+    },
+    {
+        "symbol": "PCG",
+        "name": "PG&E Corporation",
+        "cik": "0001004980"
+    },
+    {
+        "symbol": "PEG",
+        "name": "Public Service Enterprise Group",
+        "cik": "0000788784"
+    },
+    {
+        "symbol": "PEP",
+        "name": "PepsiCo",
+        "cik": "0000077476"
+    },
+    {
+        "symbol": "PFE",
+        "name": "Pfizer",
+        "cik": "0000078003"
+    },
+    {
+        "symbol": "PFG",
+        "name": "Principal Financial Group",
+        "cik": "0001126328"
+    },
+    {
+        "symbol": "PG",
+        "name": "Procter & Gamble",
+        "cik": "0000080424"
+    },
+    {
+        "symbol": "PGR",
+        "name": "Progressive Corporation",
+        "cik": "0000080661"
+    },
+    {
+        "symbol": "PH",
+        "name": "Parker Hannifin",
+        "cik": "0000076334"
+    },
+    {
+        "symbol": "PHM",
+        "name": "PulteGroup",
+        "cik": "0000822416"
+    },
+    {
+        "symbol": "PKG",
+        "name": "Packaging Corporation of America",
+        "cik": "0000075677"
+    },
+    {
+        "symbol": "PLD",
+        "name": "Prologis",
+        "cik": "0001045609"
+    },
+    {
+        "symbol": "PLTR",
+        "name": "Palantir Technologies",
+        "cik": "0001321655"
+    },
+    {
+        "symbol": "PM",
+        "name": "Philip Morris International",
+        "cik": "0001413329"
+    },
+    {
+        "symbol": "PNC",
+        "name": "PNC Financial Services",
+        "cik": "0000713676"
+    },
+    {
+        "symbol": "PNR",
+        "name": "Pentair",
+        "cik": "0000077360"
+    },
+    {
+        "symbol": "PNW",
+        "name": "Pinnacle West Capital",
+        "cik": "0000764622"
+    },
+    {
+        "symbol": "PODD",
+        "name": "Insulet Corporation",
+        "cik": "0001145197"
+    },
+    {
+        "symbol": "POOL",
+        "name": "Pool Corporation",
+        "cik": "0000945841"
+    },
+    {
+        "symbol": "PPG",
+        "name": "PPG Industries",
+        "cik": "0000079879"
+    },
+    {
+        "symbol": "PPL",
+        "name": "PPL Corporation",
+        "cik": "0000922224"
+    },
+    {
+        "symbol": "PRU",
+        "name": "Prudential Financial",
+        "cik": "0001137774"
+    },
+    {
+        "symbol": "PSA",
+        "name": "Public Storage",
+        "cik": "0001393311"
+    },
+    {
+        "symbol": "PSKY",
+        "name": "Paramount Skydance Corporation",
+        "cik": "0002041610"
+    },
+    {
+        "symbol": "PSX",
+        "name": "Phillips 66",
+        "cik": "0001534701"
+    },
+    {
+        "symbol": "PTC",
+        "name": "PTC Inc.",
+        "cik": "0000857005"
+    },
+    {
+        "symbol": "PWR",
+        "name": "Quanta Services",
+        "cik": "0001050915"
+    },
+    {
+        "symbol": "PYPL",
+        "name": "PayPal",
+        "cik": "0001633917"
+    },
+    {
+        "symbol": "QCOM",
+        "name": "Qualcomm",
+        "cik": "0000804328"
+    },
+    {
+        "symbol": "RCL",
+        "name": "Royal Caribbean Group",
+        "cik": "0000884887"
+    },
+    {
+        "symbol": "REG",
+        "name": "Regency Centers",
+        "cik": "0000910606"
+    },
+    {
+        "symbol": "REGN",
+        "name": "Regeneron Pharmaceuticals",
+        "cik": "0000872589"
+    },
+    {
+        "symbol": "RF",
+        "name": "Regions Financial Corporation",
+        "cik": "0001281761"
+    },
+    {
+        "symbol": "RJF",
+        "name": "Raymond James Financial",
+        "cik": "0000720005"
+    },
+    {
+        "symbol": "RL",
+        "name": "Ralph Lauren Corporation",
+        "cik": "0001037038"
+    },
+    {
+        "symbol": "RMD",
+        "name": "ResMed",
+        "cik": "0000943819"
+    },
+    {
+        "symbol": "ROK",
+        "name": "Rockwell Automation",
+        "cik": "0001024478"
+    },
+    {
+        "symbol": "ROL",
+        "name": "Rollins, Inc.",
+        "cik": "0000084839"
+    },
+    {
+        "symbol": "ROP",
+        "name": "Roper Technologies",
+        "cik": "0000882835"
+    },
+    {
+        "symbol": "ROST",
+        "name": "Ross Stores",
+        "cik": "0000745732"
+    },
+    {
+        "symbol": "RSG",
+        "name": "Republic Services",
+        "cik": "0001060391"
+    },
+    {
+        "symbol": "RTX",
+        "name": "RTX Corporation",
+        "cik": "0000101829"
+    },
+    {
+        "symbol": "RVTY",
+        "name": "Revvity",
+        "cik": "0000031791"
+    },
+    {
+        "symbol": "SBAC",
+        "name": "SBA Communications",
+        "cik": "0001034054"
+    },
+    {
+        "symbol": "SBUX",
+        "name": "Starbucks",
+        "cik": "0000829224"
+    },
+    {
+        "symbol": "SCHW",
+        "name": "Charles Schwab Corporation",
+        "cik": "0000316709"
+    },
+    {
+        "symbol": "SHW",
+        "name": "Sherwin-Williams",
+        "cik": "0000089800"
+    },
+    {
+        "symbol": "SJM",
+        "name": "J.M. Smucker Company (The)",
+        "cik": "0000091419"
+    },
+    {
+        "symbol": "SLB",
+        "name": "Schlumberger",
+        "cik": "0000087347"
+    },
+    {
+        "symbol": "SMCI",
+        "name": "Supermicro",
+        "cik": "0001375365"
+    },
+    {
+        "symbol": "SNA",
+        "name": "Snap-on",
+        "cik": "0000091440"
+    },
+    {
+        "symbol": "SNPS",
+        "name": "Synopsys",
+        "cik": "0000883241"
+    },
+    {
+        "symbol": "SO",
+        "name": "Southern Company",
+        "cik": "0000092122"
+    },
+    {
+        "symbol": "SOLV",
+        "name": "Solventum",
+        "cik": "0001964738"
+    },
+    {
+        "symbol": "SPG",
+        "name": "Simon Property Group",
+        "cik": "0001063761"
+    },
+    {
+        "symbol": "SPGI",
+        "name": "S&P Global",
+        "cik": "0000064040"
+    },
+    {
+        "symbol": "SRE",
+        "name": "Sempra",
+        "cik": "0001032208"
+    },
+    {
+        "symbol": "STE",
+        "name": "Steris",
+        "cik": "0001757898"
+    },
+    {
+        "symbol": "STLD",
+        "name": "Steel Dynamics",
+        "cik": "0001022671"
+    },
+    {
+        "symbol": "STT",
+        "name": "State Street Corporation",
+        "cik": "0000093751"
+    },
+    {
+        "symbol": "STX",
+        "name": "Seagate Technology",
+        "cik": "0001137789"
+    },
+    {
+        "symbol": "STZ",
+        "name": "Constellation Brands",
+        "cik": "0000016918"
+    },
+    {
+        "symbol": "SW",
+        "name": "Smurfit Westrock",
+        "cik": "0002005951"
+    },
+    {
+        "symbol": "SWK",
+        "name": "Stanley Black & Decker",
+        "cik": "0000093556"
+    },
+    {
+        "symbol": "SWKS",
+        "name": "Skyworks Solutions",
+        "cik": "0000004127"
+    },
+    {
+        "symbol": "SYF",
+        "name": "Synchrony Financial",
+        "cik": "0001601712"
+    },
+    {
+        "symbol": "SYK",
+        "name": "Stryker Corporation",
+        "cik": "0000310764"
+    },
+    {
+        "symbol": "SYY",
+        "name": "Sysco",
+        "cik": "0000096021"
+    },
+    {
+        "symbol": "T",
+        "name": "AT&T",
+        "cik": "0000732717"
+    },
+    {
+        "symbol": "TAP",
+        "name": "Molson Coors Beverage Company",
+        "cik": "0000024545"
+    },
+    {
+        "symbol": "TDG",
+        "name": "TransDigm Group",
+        "cik": "0001260221"
+    },
+    {
+        "symbol": "TDY",
+        "name": "Teledyne Technologies",
+        "cik": "0001094285"
+    },
+    {
+        "symbol": "TECH",
+        "name": "Bio-Techne",
+        "cik": "0000842023"
+    },
+    {
+        "symbol": "TEL",
+        "name": "TE Connectivity",
+        "cik": "0001385157"
+    },
+    {
+        "symbol": "TER",
+        "name": "Teradyne",
+        "cik": "0000097210"
+    },
+    {
+        "symbol": "TFC",
+        "name": "Truist Financial",
+        "cik": "0000092230"
+    },
+    {
+        "symbol": "TGT",
+        "name": "Target Corporation",
+        "cik": "0000027419"
+    },
+    {
+        "symbol": "TJX",
+        "name": "TJX Companies",
+        "cik": "0000109198"
+    },
+    {
+        "symbol": "TKO",
+        "name": "TKO Group Holdings",
+        "cik": "0001973266"
+    },
+    {
+        "symbol": "TMO",
+        "name": "Thermo Fisher Scientific",
+        "cik": "0000097745"
+    },
+    {
+        "symbol": "TMUS",
+        "name": "T-Mobile US",
+        "cik": "0001283699"
+    },
+    {
+        "symbol": "TPL",
+        "name": "Texas Pacific Land Corporation",
+        "cik": "0001811074"
+    },
+    {
+        "symbol": "TPR",
+        "name": "Tapestry, Inc.",
+        "cik": "0001116132"
+    },
+    {
+        "symbol": "TRGP",
+        "name": "Targa Resources",
+        "cik": "0001389170"
+    },
+    {
+        "symbol": "TRMB",
+        "name": "Trimble Inc.",
+        "cik": "0000864749"
+    },
+    {
+        "symbol": "TROW",
+        "name": "T. Rowe Price",
+        "cik": "0001113169"
+    },
+    {
+        "symbol": "TRV",
+        "name": "Travelers Companies (The)",
+        "cik": "0000086312"
+    },
+    {
+        "symbol": "TSCO",
+        "name": "Tractor Supply",
+        "cik": "0000916365"
+    },
+    {
+        "symbol": "TSLA",
+        "name": "Tesla, Inc.",
+        "cik": "0001318605"
+    },
+    {
+        "symbol": "TSN",
+        "name": "Tyson Foods",
+        "cik": "0000100493"
+    },
+    {
+        "symbol": "TT",
+        "name": "Trane Technologies",
+        "cik": "0001466258"
+    },
+    {
+        "symbol": "TTD",
+        "name": "Trade Desk (The)",
+        "cik": "0001671933"
+    },
+    {
+        "symbol": "TTWO",
+        "name": "Take-Two Interactive",
+        "cik": "0000946581"
+    },
+    {
+        "symbol": "TXN",
+        "name": "Texas Instruments",
+        "cik": "0000097476"
+    },
+    {
+        "symbol": "TXT",
+        "name": "Textron",
+        "cik": "0000217346"
+    },
+    {
+        "symbol": "TYL",
+        "name": "Tyler Technologies",
+        "cik": "0000860731"
+    },
+    {
+        "symbol": "UAL",
+        "name": "United Airlines Holdings",
+        "cik": "0000100517"
+    },
+    {
+        "symbol": "UBER",
+        "name": "Uber",
+        "cik": "0001543151"
+    },
+    {
+        "symbol": "UDR",
+        "name": "UDR, Inc.",
+        "cik": "0000074208"
+    },
+    {
+        "symbol": "UHS",
+        "name": "Universal Health Services",
+        "cik": "0000352915"
+    },
+    {
+        "symbol": "ULTA",
+        "name": "Ulta Beauty",
+        "cik": "0001403568"
+    },
+    {
+        "symbol": "UNH",
+        "name": "UnitedHealth Group",
+        "cik": "0000731766"
+    },
+    {
+        "symbol": "UNP",
+        "name": "Union Pacific Corporation",
+        "cik": "0000100885"
+    },
+    {
+        "symbol": "UPS",
+        "name": "United Parcel Service",
+        "cik": "0001090727"
+    },
+    {
+        "symbol": "URI",
+        "name": "United Rentals",
+        "cik": "0001067701"
+    },
+    {
+        "symbol": "USB",
+        "name": "U.S. Bancorp",
+        "cik": "0000036104"
+    },
+    {
+        "symbol": "V",
+        "name": "Visa Inc.",
+        "cik": "0001403161"
+    },
+    {
+        "symbol": "VICI",
+        "name": "Vici Properties",
+        "cik": "0001705696"
+    },
+    {
+        "symbol": "VLO",
+        "name": "Valero Energy",
+        "cik": "0001035002"
+    },
+    {
+        "symbol": "VLTO",
+        "name": "Veralto",
+        "cik": "0001967680"
+    },
+    {
+        "symbol": "VMC",
+        "name": "Vulcan Materials Company",
+        "cik": "0001396009"
+    },
+    {
+        "symbol": "VRSK",
+        "name": "Verisk Analytics",
+        "cik": "0001442145"
+    },
+    {
+        "symbol": "VRSN",
+        "name": "Verisign",
+        "cik": "0001014473"
+    },
+    {
+        "symbol": "VRTX",
+        "name": "Vertex Pharmaceuticals",
+        "cik": "0000875320"
+    },
+    {
+        "symbol": "VST",
+        "name": "Vistra Corp.",
+        "cik": "0001692819"
+    },
+    {
+        "symbol": "VTR",
+        "name": "Ventas",
+        "cik": "0000740260"
+    },
+    {
+        "symbol": "VTRS",
+        "name": "Viatris",
+        "cik": "0001792044"
+    },
+    {
+        "symbol": "VZ",
+        "name": "Verizon",
+        "cik": "0000732712"
+    },
+    {
+        "symbol": "WAB",
+        "name": "Wabtec",
+        "cik": "0000943452"
+    },
+    {
+        "symbol": "WAT",
+        "name": "Waters Corporation",
+        "cik": "0001000697"
+    },
+    {
+        "symbol": "WBA",
+        "name": "Walgreens Boots Alliance",
+        "cik": "0001618921"
+    },
+    {
+        "symbol": "WBD",
+        "name": "Warner Bros. Discovery",
+        "cik": "0001437107"
+    },
+    {
+        "symbol": "WDAY",
+        "name": "Workday, Inc.",
+        "cik": "0001327811"
+    },
+    {
+        "symbol": "WDC",
+        "name": "Western Digital",
+        "cik": "0000106040"
+    },
+    {
+        "symbol": "WEC",
+        "name": "WEC Energy Group",
+        "cik": "0000783325"
+    },
+    {
+        "symbol": "WELL",
+        "name": "Welltower",
+        "cik": "0000766704"
+    },
+    {
+        "symbol": "WFC",
+        "name": "Wells Fargo",
+        "cik": "0000072971"
+    },
+    {
+        "symbol": "WM",
+        "name": "Waste Management",
+        "cik": "0000823768"
+    },
+    {
+        "symbol": "WMB",
+        "name": "Williams Companies",
+        "cik": "0000107263"
+    },
+    {
+        "symbol": "WMT",
+        "name": "Walmart",
+        "cik": "0000104169"
+    },
+    {
+        "symbol": "WRB",
+        "name": "W. R. Berkley Corporation",
+        "cik": "0000011544"
+    },
+    {
+        "symbol": "WSM",
+        "name": "Williams-Sonoma, Inc.",
+        "cik": "0000719955"
+    },
+    {
+        "symbol": "WST",
+        "name": "West Pharmaceutical Services",
+        "cik": "0000105770"
+    },
+    {
+        "symbol": "WTW",
+        "name": "Willis Towers Watson",
+        "cik": "0001140536"
+    },
+    {
+        "symbol": "WY",
+        "name": "Weyerhaeuser",
+        "cik": "0000106535"
+    },
+    {
+        "symbol": "WYNN",
+        "name": "Wynn Resorts",
+        "cik": "0001174922"
+    },
+    {
+        "symbol": "XEL",
+        "name": "Xcel Energy",
+        "cik": "0000072903"
+    },
+    {
+        "symbol": "XOM",
+        "name": "ExxonMobil",
+        "cik": "0000034088"
+    },
+    {
+        "symbol": "XYL",
+        "name": "Xylem Inc.",
+        "cik": "0001524472"
+    },
+    {
+        "symbol": "XYZ",
+        "name": "Block, Inc.",
+        "cik": "0001512673"
+    },
+    {
+        "symbol": "YUM",
+        "name": "Yum! Brands",
+        "cik": "0001041061"
+    },
+    {
+        "symbol": "ZBH",
+        "name": "Zimmer Biomet",
+        "cik": "0001136869"
+    },
+    {
+        "symbol": "ZBRA",
+        "name": "Zebra Technologies",
+        "cik": "0000877212"
+    },
+    {
+        "symbol": "ZTS",
+        "name": "Zoetis",
+        "cik": "0001555280"
+    }
+]

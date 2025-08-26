@@ -1,0 +1,32 @@
+[
+    {
+        "ticker": "HD",
+        "company_name": "Home Depot (The)",
+        "form": "10-Q",
+        "date": "2025-08-26",
+        "report_path": "HD_10-Q_ma_report.md",
+        "sentiment": "** Passive",
+        "findings": [],
+        "potential_activity": [],
+        "quotes": []
+    },
+    {
+        "ticker": "JKHY",
+        "company_name": "Jack Henry & Associates",
+        "form": "10-K",
+        "date": "2025-08-25",
+        "report_path": "JKHY_10-K_ma_report.md",
+        "sentiment": "** Passive. While there is historical M&A activity, there are no strong indicators of immediate future M&A actions within this filing excerpt.",
+        "findings": [
+            "The filing mentions the acquisition of Payrailz in a prior period.",
+            "There's data provided relating to customer relationship intangible assets, which could relate to prior acquisitions and are closely monitored.",
+            "A line of credit is maintained which could be used for general corporate purposes, including possible acquisitions."
+        ],
+        "potential_activity": [
+            "Given the competitive nature of the industry and the company's past acquisition of Payrailz, it's reasonable to assume the company is evaluating M&A opportunities, though no concrete details are provided."
+        ],
+        "quotes": [
+            "There are no direct quotes referencing future M&A activity."
+        ]
+    }
+]

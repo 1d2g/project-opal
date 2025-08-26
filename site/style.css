@@ -69,7 +69,8 @@ body {
 .vertical-boxes {
     display: flex;
     gap: 10px;
-    height: 76%;
+    /* Let this container grow to fill the available space in the parent flex container */
+    flex: 1;
     min-height: 0;
 }
 .box {
@@ -82,7 +83,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
 }
 .horizontal-box {
     background: #fff;
@@ -94,5 +94,110 @@ body {
     align-items: center;
     justify-content: center;
     height: 25%;
-    margin-top: 10px;
+    flex-shrink: 0; /* Prevent this box from shrinking if content overflows */
+}
+
+/* This targets the container where reports will be displayed (e.g., the left .box) */
+/* It overrides the default .box styles to allow for a vertical list of cards */
+#report-container {
+    flex-direction: column;
+    justify-content: flex-start; /* Align cards to the top */
+    align-items: stretch;       /* Make cards fill the width */
+    overflow-y: auto;           /* Add a scrollbar if needed */
+    padding: 15px;              /* Add some space around the cards */
+    gap: 15px;                  /* Use gap for consistent spacing between cards */
+}
+
+/* --- Report Card Styling --- */
+.report-card {
+    background-color: #f9f9f9; /* Light gray background */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;        /* Rounded edges */
+    padding: 15px 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    flex-shrink: 0; /* Prevent cards from shrinking inside the flex container */
+}
+
+.report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.report-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.report-date {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.sentiment {
+    font-weight: bold;
+}
+
+.report-link { /* Style the link to look more like a button */
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #eef; /* A light blue background */
+    border: 1px solid #cce;
+    color: #007bff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    font-size: 0.9rem;
+}
+
+.report-link:hover {
+    background-color: #e0e0ff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.no-reports {
+    color: #777;
+    font-style: italic;
+}
+
+/* --- Full Report Animation Styles --- */
+
+/* This is the main container for the animation. It starts collapsed. */
+.full-report-content {
+    display: grid;
+    grid-template-rows: 0fr; /* Start with zero height */
+    transition: grid-template-rows 0.4s ease-in-out;
+    margin-top: 15px;
+}
+
+/* When the 'expanded' class is added by JavaScript, it animates to full height. */
+.full-report-content.expanded {
+    grid-template-rows: 1fr;
+}
+
+/* This inner div is crucial for the grid animation to work correctly. */
+.full-report-inner {
+    overflow: hidden;
+}
+
+/* Styling for the actual text content inside the animation container. */
+.full-report-inner pre {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    margin-top: 15px;
+    border-top: 1px dashed #ccc;
+    white-space: pre-wrap;       /* Wrap long lines */
+    word-wrap: break-word;       /* Break long words */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #333;
 }

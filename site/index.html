@@ -15,16 +15,15 @@
         </div>
         <div class="main-content">
             <div class="vertical-boxes">
-                <div class="box"></div>
+                <!-- The left box is the target for our reports -->
+                <div class="box" id="report-container"></div>
+                <!-- The right box remains available for other content -->
                 <div class="box"></div>
             </div>
             <div class="horizontal-box"></div>
         </div>
     </div>
-    <script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('collapsed');
-        }
-    </script>
+    <!-- Link to the new external JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
