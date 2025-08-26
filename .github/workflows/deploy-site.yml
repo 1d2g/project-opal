@@ -1,9 +1,14 @@
 name: Build and Deploy Site
 
 on:
+  # Run on a schedule (twice daily)
   schedule:
     - cron: '0 0,12 * * *'
+  # Allow manual runs from the Actions tab
   workflow_dispatch:
+  # Also run on pushes to the main branch
+  push:
+    branches: [ "main" ]
 permissions:
   contents: write
   pages: write
@@ -19,13 +24,19 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.11' # Using a specific version is better for consistency
 
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-       #Uncomment and use if you need to run backend_script.py
+      - name: Run enrichment script
+        # This script must run first to create the sp500_companies.json file
+        run: python scripts/enrich_company_data.py
+
       - name: Run backend script
+        # This script uses the API_KEY to fetch and analyze filings
         env:
            API_KEY: ${{ secrets.API_KEY }}
         run: python scripts/backend_script.py
@@ -38,5 +49,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
