@@ -1,51 +1,107 @@
+let allFetchedReports = [];
+let currentFilter = 'ma_only'; // Set the default filter state
+
 document.addEventListener('DOMContentLoaded', () => {
+    setupFilters();
     fetchReports();
 });
+
+function setupFilters() {
+    const filterContainer = document.getElementById('filter-controls');
+    if (!filterContainer) return; // Guard against element not being found
+
+    filterContainer.innerHTML = `
+        <button class="filter-btn active" data-filter="ma_only">M&A Detected</button>
+        <button class="filter-btn" data-filter="all">All Reports</button>
+    `;
+
+    filterContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('filter-btn')) {
+            const filterValue = event.target.dataset.filter;
+            if (filterValue !== currentFilter) {
+                currentFilter = filterValue;
+                
+                // Update active button
+                filterContainer.querySelector('.active').classList.remove('active');
+                event.target.classList.add('active');
+
+                // Re-render the reports with the new filter
+                renderReports();
+            }
+        }
+    });
+}
+
+function toggleHorizontalBox(button) {
+    const box = document.getElementById('horizontal-box');
+    box.classList.toggle('collapsed');
+
+    if (box.classList.contains('collapsed')) {
+        button.textContent = '+';
+    } else {
+        button.textContent = '-';
+    }
+}
 
 function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('collapsed');
 }
 
 async function fetchReports() {
-    const reportContainer = document.getElementById('report-container');
+    const reportListContainer = document.getElementById('report-list-container');
     try {
         const response = await fetch('analysis_manifest.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const reports = await response.json();
-
-        if (reports.length === 0) {
-            reportContainer.innerHTML = '<p class="no-reports">No recent analysis reports found.</p>';
-            return;
-        }
-
-        // Clear any placeholder content
-        reportContainer.innerHTML = '';
-
-        reports.forEach(report => {
-            const reportCard = createReportCard(report);
-            reportContainer.appendChild(reportCard);
-        });
+        allFetchedReports = await response.json();
+        renderReports();
 
     } catch (error) {
         console.error("Failed to fetch or process reports:", error);
-        reportContainer.innerHTML = '<p class="no-reports">Error loading analysis reports. See console for details.</p>';
+        if(reportListContainer) {
+            reportListContainer.innerHTML = '<p class="no-reports">Error loading analysis reports. See console for details.</p>';
+        }
     }
+}
+
+function renderReports() {
+    const reportListContainer = document.getElementById('report-list-container');
+    if (!reportListContainer) return;
+
+    reportListContainer.innerHTML = ''; // Clear existing reports
+
+    const reportsToRender = currentFilter === 'all'
+        ? allFetchedReports
+        : allFetchedReports.filter(report => report.sentiment !== 'None');
+
+    if (reportsToRender.length === 0) {
+        reportListContainer.innerHTML = '<p class="no-reports">No reports match the current filter.</p>';
+        return;
+    }
+
+    reportsToRender.forEach(report => {
+        const reportCard = createReportCard(report);
+        reportListContainer.appendChild(reportCard);
+    });
 }
 
 function createReportCard(report) {
     const card = document.createElement('div');
     card.className = 'report-card';
 
-    // Use backticks for multi-line HTML strings
+    // Create the link to the SEC filing index page
+    const accessionNodash = report.accession_no.replace(/-/g, '');
+    const secUrl = `https://www.sec.gov/Archives/edgar/data/${parseInt(report.cik, 10)}/${accessionNodash}/${report.accession_no}-index.html`;
+    const formLink = `<a href="${secUrl}" class="sec-link-form" target="_blank" rel="noopener noreferrer" title="View filing on SEC.gov">${report.form}</a>`;
+
     card.innerHTML = `
         <div class="report-header">
             <h3>${report.company_name} (${report.ticker})</h3>
             <span class="report-date">${report.date}</span>
         </div>
         <div class="report-body">
-            <p><strong>Form:</strong> ${report.form}</p>
+            <p><strong>Form:</strong> ${formLink}</p>
             <p><strong>M&A Sentiment:</strong> <span class="sentiment">${report.sentiment}</span></p>
             <h4>Key Findings:</h4>
             <ul>${report.findings.map(finding => `<li>${finding}</li>`).join('')}</ul>
@@ -83,11 +139,18 @@ async function toggleFullReport(button, reportPath) {
             // Create an inner wrapper for the content. This is needed for the animation.
             const innerContent = document.createElement('div');
             innerContent.className = 'full-report-inner';
-            innerContent.innerHTML = `<pre>${reportText}</pre>`;
+
+            // Create a container for the report text to style it
+            const reportTextContainer = document.createElement('div');
+            reportTextContainer.className = 'full-report-text';
+            // Replace newlines with <br> to preserve line breaks without using <pre>
+            reportTextContainer.innerHTML = reportText.replace(/\n/g, '<br>');
+
+            innerContent.appendChild(reportTextContainer);
             fullReportContainer.appendChild(innerContent);
 
-            // Insert the full report content after the button
-            button.insertAdjacentElement('afterend', fullReportContainer);
+            // Insert the full report content BEFORE the button to keep the button at the bottom
+            card.insertBefore(fullReportContainer, button);
 
             // Use a tiny timeout to ensure the browser has painted the collapsed element
             // before we add the class to expand it. This makes the animation reliable.

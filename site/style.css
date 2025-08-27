@@ -76,36 +76,102 @@ body {
 .box {
     background: #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    padding: 5px;
+    /* Padding will be handled by child elements or specific box IDs */
     border-radius: 0;
     flex: 1;
     min-height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .horizontal-box {
     background: #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    padding: 5px;
+    /* Add relative positioning to contain the absolute-positioned button */
+    position: relative;
+    /* Add a transition for the collapse/expand animation */
+    transition: min-height 0.4s ease-in-out;
+    padding: 20px; /* Add some explicit padding for content inside this box */
     border-radius: 0;
-    min-height: 80px;
+    min-height: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 25%;
     flex-shrink: 0; /* Prevent this box from shrinking if content overflows */
+}
+
+/* --- Collapsible Box Styles --- */
+.horizontal-box.collapsed {
+    min-height: 40px; /* A small, "header-like" height when collapsed */
+    overflow: hidden;
+}
+
+.box-toggle {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background-color: #f0f2f5;
+    color: #555;
+    font-size: 1.2rem;
+    line-height: 22px; /* Helps center the +/- text */
+    text-align: center;
+    cursor: pointer;
+    z-index: 20;
+    padding: 0;
 }
 
 /* This targets the container where reports will be displayed (e.g., the left .box) */
 /* It overrides the default .box styles to allow for a vertical list of cards */
 #report-container {
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align cards to the top */
-    align-items: stretch;       /* Make cards fill the width */
-    overflow-y: auto;           /* Add a scrollbar if needed */
-    padding: 15px;              /* Add some space around the cards */
-    gap: 15px;                  /* Use gap for consistent spacing between cards */
+    padding: 0; /* Padding will be handled by the children */
+    overflow: hidden; /* Important for containing the flex children */
+}
+
+/* --- New Header and Filter Styles --- */
+.report-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;                /* Fixed height for the header */
+    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0;              /* Prevent header from shrinking */
+}
+
+.report-box-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 5px;
+    background-color: #f0f2f5;
+    padding: 4px;
+    border-radius: 7px;
+}
+
+.filter-btn {
+    border: none;
+    background-color: transparent;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #555;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.filter-btn.active {
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 /* --- Report Card Styling --- */
@@ -116,6 +182,10 @@ body {
     padding: 15px 20px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     flex-shrink: 0; /* Prevent cards from shrinking inside the flex container */
+}
+
+.report-card:not(:last-child) {
+    margin-bottom: 15px; /* Use margin for spacing instead of flex 'gap' */
 }
 
 .report-header {
@@ -166,38 +236,51 @@ body {
     font-style: italic;
 }
 
-/* --- Full Report Animation Styles --- */
-
-/* This is the main container for the animation. It starts collapsed. */
-.full-report-content {
-    display: grid;
-    grid-template-rows: 0fr; /* Start with zero height */
-    transition: grid-template-rows 0.4s ease-in-out;
-    margin-top: 15px;
-}
-
-/* When the 'expanded' class is added by JavaScript, it animates to full height. */
-.full-report-content.expanded {
-    grid-template-rows: 1fr;
-}
-
-/* This inner div is crucial for the grid animation to work correctly. */
-.full-report-inner {
-    overflow: hidden;
-}
-
-/* Styling for the actual text content inside the animation container. */
-.full-report-inner pre {
-    background-color: #fff;
+/* The container for the actual list of reports */
+.report-list-container {
+    flex: 1 1 auto; /* Allow this container to grow and fill available space */
+    min-height: 0;  /* This is the key to making scrolling work in a flex child */
+    overflow-y: auto;            /* Make this part scrollable */
     padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+/* Container for the expanded full report */
+.full-report-content {
+    max-height: 0; /* Start collapsed */
+    overflow: hidden;
+    /* Animate max-height for a smoother transition */
+    transition: max-height 0.5s ease-in-out;
+}
+
+.full-report-content.expanded {
+    /* Animate to a height large enough to contain any report */
+    max-height: 2000px; 
+}
+
+/* This inner div gets the padding and border, making the animation smoother */
+.full-report-inner {
+    /* The white card is removed; this now just provides spacing and a separator */
     margin-top: 15px;
+    padding-top: 15px;
     border-top: 1px dashed #ccc;
-    white-space: pre-wrap;       /* Wrap long lines */
-    word-wrap: break-word;       /* Break long words */
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9rem;
-    line-height: 1.5;
+}
+
+/* Styles the actual report text to look clean and professional */
+.full-report-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
     color: #333;
+    margin-bottom: 25px; /* Space between text and button */
+}
+
+/* Styles the new form link to the SEC website */
+.sec-link-form {
+    text-decoration: none;
+    color: #556ee6;
+}
+
+.sec-link-form:hover {
+    text-decoration: underline;
 }

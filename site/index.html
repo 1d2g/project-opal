@@ -16,11 +16,19 @@
         <div class="main-content">
             <div class="vertical-boxes">
                 <!-- The left box is the target for our reports -->
-                <div class="box" id="report-container"></div>
+                <div class="box" id="report-container">
+                    <div class="report-box-header">
+                        <h3>Filings and Earnings Calls</h3>
+                        <div class="filter-controls" id="filter-controls"></div>
+                    </div>
+                    <div class="report-list-container" id="report-list-container"></div>
+                </div>
                 <!-- The right box remains available for other content -->
                 <div class="box"></div>
             </div>
-            <div class="horizontal-box"></div>
+            <div class="horizontal-box" id="horizontal-box">
+                <button class="box-toggle" onclick="toggleHorizontalBox(this)">-</button>
+            </div>
         </div>
     </div>
     <!-- Link to the new external JavaScript file -->
