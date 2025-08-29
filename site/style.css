@@ -1,9 +1,49 @@
+:root {
+    --bg-color: #f5f5f5;
+    --surface-color: #fff;
+    --text-color: #222;
+    --subtle-text-color: #666;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0,0,0,0.12);
+    --highlight-bg: #eef;
+    --highlight-border: #cce;
+    --highlight-text: #007bff;
+    --button-bg: #eee;
+    --filter-bg: #f0f2f5;
+    --filter-active-bg: #fff;
+    --filter-text: #555;
+    --filter-active-text: #333;
+    --link-color: #4A7C8C;
+    --link-hover-color: #5A8C9C;
+    --icon-color: #222;
+}
+
+body.dark-mode {
+    --bg-color: #2c2c2c;
+    --surface-color: #363636;
+    --text-color: #f5f5f5;
+    --subtle-text-color: #aaa;
+    --border-color: #444;
+    --shadow-color: rgba(0,0,0,0.4);
+    --highlight-bg: #3a3a5a;
+    --highlight-border: #556;
+    --highlight-text: #8af;
+    --button-bg: #444;
+    --filter-bg: #2c2c2c;
+    --filter-active-bg: #444;
+    --filter-text: #ccc;
+    --filter-active-text: #fff;
+    --link-color: #7FCACD;
+    --link-hover-color: #8FDCDC;
+    --icon-color: #f5f5f5;
+}
+
 /* Top bar styles */
 .top-bar {
     width: 100%;
     height: 60px;
-    background: #fff;
-    color: #222;
+    background: var(--surface-color);
+    color: var(--text-color);
     display: flex;
     align-items: center;
     padding: 0 30px;
@@ -14,8 +54,9 @@
     top: 0;
     left: 0;
     z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 8px var(--shadow-color);
     border-radius: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 .top-bar-title {
     margin-left: 0;
@@ -23,8 +64,10 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f5f5f5;
+    background: var(--bg-color);
+    color: var(--text-color);
     padding-top: 70px; /* Top bar height (60px) + gap (10px) for consistent spacing */
+    transition: background-color 0.3s, color 0.3s;
 }
 .container {
     display: flex;
@@ -34,11 +77,11 @@ body {
     min-height: 0;
 }
 .sidebar {
-    background: #fff;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+    background: var(--surface-color);
+    box-shadow: 2px 0 8px var(--shadow-color);
     padding: 5px;
     width: 220px;
-    transition: width 0.3s;
+    transition: width 0.3s, background-color 0.3s, color 0.3s;
     min-width: 60px;
     display: flex;
     flex-direction: column;
@@ -48,13 +91,15 @@ body {
     width: 60px;
 }
 .sidebar-toggle {
-    background: #eee;
+    background: var(--button-bg);
     border: none;
     padding: 5px;
     cursor: pointer;
     margin-bottom: 10px;
     border-radius: 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 .main-content {
     flex: 1 1 0%;
@@ -74,20 +119,23 @@ body {
     min-height: 0;
 }
 .box {
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    background: var(--surface-color);
+    box-shadow: 0 2px 8px var(--shadow-color);
     /* Padding will be handled by child elements or specific box IDs */
     border-radius: 0;
     flex: 1;
     min-height: 150px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 .horizontal-box {
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    background: var(--surface-color);
+    box-shadow: 0 2px 8px var(--shadow-color);
     /* Add relative positioning to contain the absolute-positioned button */
     position: relative;
     /* Add a transition for the collapse/expand animation */
-    transition: min-height 0.4s ease-in-out;
+    transition: min-height 0.4s ease-in-out, background-color 0.3s, color 0.3s;
     padding: 20px; /* Add some explicit padding for content inside this box */
     border-radius: 0;
     min-height: 25%;
@@ -110,24 +158,25 @@ body {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: 1px solid #ccc;
-    background-color: #f0f2f5;
-    color: #555;
+    border: 1px solid var(--border-color);
+    background-color: var(--filter-bg);
+    color: var(--filter-text);
     font-size: 1.2rem;
     line-height: 22px; /* Helps center the +/- text */
     text-align: center;
     cursor: pointer;
     z-index: 20;
     padding: 0;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 /* This targets the container where reports will be displayed (e.g., the left .box) */
-/* It overrides the default .box styles to allow for a vertical list of cards */
-#report-container {
+#report-container, #news-container {
     display: flex;
     flex-direction: column;
     padding: 0; /* Padding will be handled by the children */
     overflow: hidden; /* Important for containing the flex children */
+    background-color: var(--surface-color);
 }
 
 /* --- New Header and Filter Styles --- */
@@ -137,23 +186,26 @@ body {
     align-items: center;
     padding: 0 20px;
     height: 60px;                /* Fixed height for the header */
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--border-color);
     flex-shrink: 0;              /* Prevent header from shrinking */
+    transition: border-color 0.3s;
 }
 
 .report-box-header h3 {
     margin: 0;
     font-size: 1.1rem;
     font-weight: 500;
-    color: #333;
+    color: var(--text-color);
+    transition: color 0.3s;
 }
 
 .filter-controls {
     display: flex;
     gap: 5px;
-    background-color: #f0f2f5;
+    background-color: var(--filter-bg);
     padding: 4px;
     border-radius: 7px;
+    transition: background-color 0.3s;
 }
 
 .filter-btn {
@@ -164,24 +216,25 @@ body {
     cursor: pointer;
     font-size: 0.85rem;
     font-weight: 500;
-    color: #555;
+    color: var(--filter-text);
     transition: background-color 0.2s, color 0.2s;
 }
 
 .filter-btn.active {
-    background-color: #fff;
-    color: #333;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background-color: var(--filter-active-bg);
+    color: var(--filter-active-text);
+    box-shadow: 0 1px 3px var(--shadow-color);
 }
 
 /* --- Report Card Styling --- */
 .report-card {
-    background-color: #f9f9f9; /* Light gray background */
-    border: 1px solid #e0e0e0;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
     border-radius: 8px;        /* Rounded edges */
     padding: 15px 20px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 3px var(--shadow-color);
     flex-shrink: 0; /* Prevent cards from shrinking inside the flex container */
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .report-card:not(:last-child) {
@@ -192,19 +245,23 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
     margin-bottom: 15px;
+    transition: border-color 0.3s;
 }
 
 .report-header h3 {
     margin: 0;
     font-size: 1.1rem;
+    color: var(--text-color);
+    transition: color 0.3s;
 }
 
 .report-date {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--subtle-text-color);
+    transition: color 0.3s;
 }
 
 .sentiment {
@@ -216,24 +273,33 @@ body {
     margin-top: 15px;
     text-decoration: none;
     font-weight: bold;
-    background-color: #eef; /* A light blue background */
-    border: 1px solid #cce;
-    color: #007bff;
+    background-color: var(--highlight-bg);
+    border: 1px solid var(--highlight-border);
+    color: var(--highlight-text);
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, box-shadow 0.2s, color 0.2s, border-color 0.2s;
     font-size: 0.9rem;
 }
 
 .report-link:hover {
-    background-color: #e0e0ff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background-color: var(--highlight-bg);
+    box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+.report-link:visited {
+    color: #3A6C7C; /* Muted visited color for light mode */
+}
+
+body.dark-mode .report-link:visited {
+    color: #6FAAA8; /* Muted visited color for dark mode */
 }
 
 .no-reports {
-    color: #777;
+    color: var(--subtle-text-color);
     font-style: italic;
+    transition: color 0.3s;
 }
 
 /* The container for the actual list of reports */
@@ -263,7 +329,8 @@ body {
     /* The white card is removed; this now just provides spacing and a separator */
     margin-top: 15px;
     padding-top: 15px;
-    border-top: 1px dashed #ccc;
+    border-top: 1px dashed var(--border-color);
+    transition: border-color 0.3s;
 }
 
 /* Styles the actual report text to look clean and professional */
@@ -271,16 +338,130 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 25px; /* Space between text and button */
+    transition: color 0.3s;
 }
 
 /* Styles the new form link to the SEC website */
 .sec-link-form {
     text-decoration: none;
-    color: #556ee6;
+    color: var(--link-color);
+    transition: color 0.3s;
 }
 
 .sec-link-form:hover {
     text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+.sec-link-form:visited {
+    color: #3A6C7C; /* Muted visited color for light mode */
+}
+
+body.dark-mode .sec-link-form:visited {
+    color: #6FAAA8; /* Muted visited color for dark mode */
+}
+
+/* Dark Mode Toggle */
+.dark-mode-icon {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 auto;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sidebar.collapsed .dark-mode-icon {
+    display: block;
+}
+
+body:not(.dark-mode) .dark-mode-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+body.dark-mode .dark-mode-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='5'%3E%3C/circle%3E%3Cline x1='12' y1='1' x2='12' y2='3'%3E%3C/line%3E%3Cline x1='12' y1='21' x2='12' y2='23'%3E%3C/line%3E%3Cline x1='4.22' y1='4.22' x2='5.64' y2='5.64'%3E%3C/line%3E%3Cline x1='18.36' y1='18.36' x2='19.78' y2='19.78'%3E%3C/line%3E%3Cline x1='1' y1='12' x2='3' y2='12'%3E%3C/line%3E%3Cline x1='21' y1='12' x2='23' y2='12'%3E%3C/line%3E%3Cline x1='4.22' y1='19.78' x2='5.64' y2='18.36'%3E%3C/line%3E%3Cline x1='18.36' y1='5.64' x2='19.78' y2='4.22'%3E%3C/line%3E%3C/svg%3E");
+}
+
+.sidebar.collapsed .dark-mode-toggle-container {
+    display: none;
+}
+
+.dark-mode-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin-top: 10px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    visibility: visible;
+}
+
+.sidebar.collapsed .dark-mode-toggle-container {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dark-mode-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--highlight-text);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }

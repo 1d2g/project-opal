@@ -12,6 +12,14 @@
     <div class="container">
         <div class="sidebar collapsed" id="sidebar">
             <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+            <div class="dark-mode-icon" id="darkModeIcon"></div>
+            <div class="dark-mode-toggle-container">
+                <span class="dark-mode-label">Dark Mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
         </div>
         <div class="main-content">
             <div class="vertical-boxes">
@@ -24,7 +32,12 @@
                     <div class="report-list-container" id="report-list-container"></div>
                 </div>
                 <!-- The right box remains available for other content -->
-                <div class="box"></div>
+                <div class="box" id="news-container">
+                    <div class="report-box-header">
+                        <h3>M&A News</h3>
+                    </div>
+                    <div class="report-list-container" id="news-list-container"></div>
+                </div>
             </div>
             <div class="horizontal-box" id="horizontal-box">
                 <button class="box-toggle" onclick="toggleHorizontalBox(this)">-</button>

@@ -4,7 +4,39 @@ let currentFilter = 'ma_only'; // Set the default filter state
 document.addEventListener('DOMContentLoaded', () => {
     setupFilters();
     fetchReports();
+    setupDarkMode();
+    fetchNews();
 });
+
+function setupDarkMode() {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeIcon = document.getElementById('darkModeIcon');
+    const body = document.body;
+
+    const setDarkMode = (enabled) => {
+        if (enabled) {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            body.classList.remove('dark-mode');
+            darkModeToggle.checked = false;
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    };
+
+    // Check for saved preference
+    const darkModeSaved = localStorage.getItem('darkMode') === 'enabled';
+    setDarkMode(darkModeSaved);
+
+    darkModeToggle.addEventListener('change', () => {
+        setDarkMode(darkModeToggle.checked);
+    });
+
+    darkModeIcon.addEventListener('click', () => {
+        setDarkMode(!body.classList.contains('dark-mode'));
+    });
+}
 
 function setupFilters() {
     const filterContainer = document.getElementById('filter-controls');
@@ -164,4 +196,64 @@ async function toggleFullReport(button, reportPath) {
             button.textContent = 'Error - Retry';
         }
     }
+}
+
+async function fetchNews() {
+    const newsListContainer = document.getElementById('news-list-container');
+    try {
+        const response = await fetch('news_summary.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const newsData = await response.json();
+        renderNews(newsData);
+
+    } catch (error) {
+        console.error("Failed to fetch or process news:", error);
+        if(newsListContainer) {
+            newsListContainer.innerHTML = '<p class="no-reports">Error loading news. See console for details.</p>';
+        }
+    }
+}
+
+function renderNews(newsData) {
+    const newsListContainer = document.getElementById('news-list-container');
+    if (!newsListContainer) return;
+
+    newsListContainer.innerHTML = ''; // Clear existing news
+
+    if (newsData.length === 0) {
+        newsListContainer.innerHTML = '<p class="no-reports">No news available.</p>';
+        return;
+    }
+
+    newsData.forEach(newsItem => {
+        const newsCard = createNewsCard(newsItem);
+        newsListContainer.appendChild(newsCard);
+    });
+}
+
+function createNewsCard(newsItem) {
+    const card = document.createElement('div');
+    card.className = 'report-card';
+
+    // Format the date for better display
+    const publishedDate = new Date(newsItem.published_at).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
+    card.innerHTML = `
+        <div class="report-header">
+            <h3>${newsItem.company_name} (${newsItem.ticker})</h3>
+            <span class="report-date">${publishedDate}</span>
+        </div>
+        <div class="report-body">
+            <h4>${newsItem.title}</h4>
+            <p>${newsItem.summary}</p>
+        </div>
+        <a href="${newsItem.url}" class="report-link" target="_blank" rel="noopener noreferrer">Read More at ${newsItem.source}</a>
+    `;
+    return card;
 }
