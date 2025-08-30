@@ -43,7 +43,18 @@ def monitor_news():
     """Fetches, filters, and stores M&A-related news articles in Firestore."""
     # --- Firebase Initialization ---
     try:
-        cred = credentials.ApplicationDefault()
+        # Read Firebase credentials from environment variable (e.g., GitHub Secret)
+        firebase_credentials_json = os.environ.get("FIREBASE_CREDENTIALS")
+        if not firebase_credentials_json:
+            # Fallback for local development: read from local file if env var not set
+            local_credentials_path = "scripts/firebase_credentials.json"
+            if os.path.exists(local_credentials_path):
+                with open(local_credentials_path, 'r') as f:
+                    firebase_credentials_json = f.read()
+            else:
+                raise ValueError("FIREBASE_CREDENTIALS environment variable not set and local file not found.")
+
+        cred = credentials.Certificate(json.loads(firebase_credentials_json))
         firebase_admin.initialize_app(cred, {
             'projectId': 'opal-230c9',
         })
