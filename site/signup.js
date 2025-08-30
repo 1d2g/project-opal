@@ -40,13 +40,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const userCredential = await auth.createUserWithEmailAndPassword(email, password);
             const user = userCredential.user;
 
-            // Store additional user data in Firestore
+            // Fetch S&P 500 companies
+            const response = await fetch('sp500_companies.json');
+            const sp500Companies = await response.json();
+            const allSp500Tickers = sp500Companies.map(company => company.symbol);
+
+            // Store additional user data in Firestore, including default monitored companies
             await db.collection('users').doc(user.uid).set({
                 firstName,
                 lastName,
                 organization,
-                email
+                email,
+                monitored_companies: allSp500Tickers // Set default watchlist
             });
+
+            // Also create a user_preferences document for consistency, if needed by other parts of the app
+            await db.collection('user_preferences').doc(user.uid).set({
+                monitored_companies: allSp500Tickers
+            }, { merge: true });
 
             window.location.href = 'index.html';
         } catch (error) {

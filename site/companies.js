@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setupSidebarNavigation();
             fetchSp500Companies().then(() => {
                 setupCompanyManagement(user.uid);
+                setupIndexManagement(user.uid); // New: Setup index management
             });
         } else {
             // User is signed out.
@@ -202,4 +203,33 @@ async function setupCompanyManagement(userId) {
             });
         });
     }
+}
+
+function setupIndexManagement(userId) {
+    const userPreferencesDoc = db.collection('user_preferences').doc(userId);
+    const indexSelect = document.getElementById('index-select');
+    const addIndexCompaniesBtn = document.getElementById('add-index-companies-btn');
+    const removeIndexCompaniesBtn = document.getElementById('remove-index-companies-btn');
+
+    addIndexCompaniesBtn.addEventListener('click', async () => {
+        const selectedIndex = indexSelect.value;
+        if (selectedIndex === 'SP500') {
+            const sp500Tickers = allSp500Companies.map(company => company.symbol);
+            const newMonitoredCompanies = [...new Set([...monitoredCompanies, ...sp500Tickers])];
+            monitoredCompanies = newMonitoredCompanies.sort();
+            await userPreferencesDoc.set({ monitored_companies: monitoredCompanies }, { merge: true });
+            renderMonitoredCompanies();
+        }
+    });
+
+    removeIndexCompaniesBtn.addEventListener('click', async () => {
+        const selectedIndex = indexSelect.value;
+        if (selectedIndex === 'SP500') {
+            const sp500Tickers = new Set(allSp500Companies.map(company => company.symbol));
+            const newMonitoredCompanies = monitoredCompanies.filter(ticker => !sp500Tickers.has(ticker));
+            monitoredCompanies = newMonitoredCompanies.sort();
+            await userPreferencesDoc.set({ monitored_companies: monitoredCompanies }, { merge: true });
+            renderMonitoredCompanies();
+        }
+    });
 }

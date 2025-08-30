@@ -43,6 +43,8 @@ jobs:
         run: python scripts/backend_script.py
 
       - name: Run news monitor script
+        env:
+           FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
         run: python scripts/monitor_news.py
 
       - name: Commit and push news_summary.json changes

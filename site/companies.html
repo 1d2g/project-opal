@@ -56,6 +56,18 @@
                         <option value="ticker-desc">Ticker (Z-A)</option>
                     </select>
                 </div>
+                <div class="index-management-section">
+                    <h3>Add Companies by Index</h3>
+                    <div class="index-selection">
+                        <label for="index-select">Select Index:</label>
+                        <select id="index-select">
+                            <option value="SP500">S&P 500</option>
+                            <!-- Add more indexes here in the future -->
+                        </select>
+                        <button id="add-index-companies-btn">Add All from Index</button>
+                        <button id="remove-index-companies-btn">Remove All from Index</button>
+                    </div>
+                </div>
                 <div id="monitored-companies-list" class="monitored-companies-list"></div>
             </div>
         </div>
