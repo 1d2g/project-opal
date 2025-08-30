@@ -39,6 +39,7 @@ jobs:
         # This script uses the API_KEY to fetch and analyze filings
         env:
            API_KEY: ${{ secrets.API_KEY }}
+           FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
         run: python scripts/backend_script.py
 
       - name: Run news monitor script
