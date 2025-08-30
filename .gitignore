@@ -1,4 +1,4 @@
 .env
 site/*.txt
 site/output.txt
-#scripts/firebase_credentials.json
+scripts/firebase_credentials.json
