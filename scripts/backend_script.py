@@ -15,9 +15,13 @@ from firebase_admin import firestore
 
 # --- Configuration ---
 # Load environment variables from .env automatically
-# Use dotenv_values to directly read from .env, bypassing os.environ.get() issues
-env_vars = dotenv_values()
-API_KEY = env_vars.get("API_KEY")  # Gemini API Key
+# Prioritize environment variables set directly (e.g., by GitHub Secrets)
+API_KEY = os.environ.get("API_KEY")
+
+# If not found, then load from .env file for local development
+if not API_KEY:
+    env_vars = dotenv_values()
+    API_KEY = env_vars.get("API_KEY")  # Gemini API Key
 
 # It's crucial to set a User-Agent that is descriptive and includes your contact info.
 USER_AGENT = "Project Opal anselericson@gmail.com"
