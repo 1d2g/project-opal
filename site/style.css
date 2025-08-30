@@ -38,6 +38,13 @@ body.dark-mode {
     --icon-color: #f5f5f5;
 }
 
+/* Ensure all elements use the custom properties for colors */
+* {
+    background: none;
+    color: inherit;
+    box-sizing: border-box;
+}
+
 /* Top bar styles */
 .top-bar {
     width: 100%;
@@ -84,21 +91,30 @@ body {
     min-width: 60px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start; /* Pushes content to top */
     margin-top: -10px; /* Counteract body padding-top gap so sidebar aligns with header */
+    transition: width 0.3s cubic-bezier(0.4,0,0.2,1), background-color 0.3s, color 0.3s;
+    overflow: visible;
 }
 .sidebar.collapsed {
     width: 60px;
+    min-width: 60px;
+    overflow: visible;
+    padding: 0; /* Keep padding at 0 */
 }
 .sidebar-toggle {
     background: var(--button-bg);
     border: none;
     padding: 5px;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin-bottom: 0px;  /* Removed to prevent gap */
     border-radius: 0;
     box-shadow: 0 2px 8px var(--shadow-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
+    width: 100%; /* Make it span full width */
+    text-align: center; /* Center the text */
 }
 .main-content {
     flex: 1 1 0%;
@@ -229,15 +245,16 @@ body {
 .report-card {
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
-    border-radius: 8px;        /* Rounded edges */
-    padding: 15px 20px;
+    border-radius: 6px;
+    padding: 10px 15px;
     box-shadow: 0 1px 3px var(--shadow-color);
-    flex-shrink: 0; /* Prevent cards from shrinking inside the flex container */
+    flex-shrink: 0;
     transition: background-color 0.3s, border-color 0.3s;
+    display: block;
 }
 
 .report-card:not(:last-child) {
-    margin-bottom: 15px; /* Use margin for spacing instead of flex 'gap' */
+    margin-bottom: 10px;
 }
 
 .report-header {
@@ -245,14 +262,14 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
-    margin-bottom: 15px;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
     transition: border-color 0.3s;
 }
 
 .report-header h3 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-color);
     transition: color 0.3s;
 }
@@ -263,23 +280,33 @@ body {
     transition: color 0.3s;
 }
 
+.report-body h4 {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.report-body ul {
+    margin-top: 5px;
+    padding-left: 15px;
+}
+
 .sentiment {
     font-weight: bold;
 }
 
 .report-link { /* Style the link to look more like a button */
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 10px;
     text-decoration: none;
     font-weight: bold;
     background-color: var(--highlight-bg);
     border: 1px solid var(--highlight-border);
     color: var(--highlight-text);
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s, box-shadow 0.2s, color 0.2s, border-color 0.2s;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .report-link:hover {
@@ -299,6 +326,7 @@ body.dark-mode .report-link:visited {
     color: var(--subtle-text-color);
     font-style: italic;
     transition: color 0.3s;
+    display: block;
 }
 
 /* The container for the actual list of reports */
@@ -308,6 +336,8 @@ body.dark-mode .report-link:visited {
     overflow-y: auto;            /* Make this part scrollable */
     padding: 15px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Container for the expanded full report */
@@ -363,104 +393,377 @@ body.dark-mode .sec-link-form:visited {
 }
 
 /* Dark Mode Toggle */
-.dark-mode-icon {
-    display: none;
-    cursor: pointer;
-    padding: 10px;
-    margin: 0 auto;
-    width: 24px;
-    height: 24px;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.sidebar.collapsed .dark-mode-icon {
-    display: block;
-}
-
-body:not(.dark-mode) .dark-mode-icon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'%3E%3C/path%3E%3C/svg%3E");
-}
-
-body.dark-mode .dark-mode-icon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='5'%3E%3C/circle%3E%3Cline x1='12' y1='1' x2='12' y2='3'%3E%3C/line%3E%3Cline x1='12' y1='21' x2='12' y2='23'%3E%3C/line%3E%3Cline x1='4.22' y1='4.22' x2='5.64' y2='5.64'%3E%3C/line%3E%3Cline x1='18.36' y1='18.36' x2='19.78' y2='19.78'%3E%3C/line%3E%3Cline x1='1' y1='12' x2='3' y2='12'%3E%3C/line%3E%3Cline x1='21' y1='12' x2='23' y2='12'%3E%3C/line%3E%3Cline x1='4.22' y1='19.78' x2='5.64' y2='18.36'%3E%3C/line%3E%3Cline x1='18.36' y1='5.64' x2='19.78' y2='4.22'%3E%3C/line%3E%3C/svg%3E");
-}
-
-.sidebar.collapsed .dark-mode-toggle-container {
-    display: none;
-}
-
 .dark-mode-toggle-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 15px;
-    margin-top: 10px;
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-    visibility: visible;
-}
-
-.sidebar.collapsed .dark-mode-toggle-container {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.dark-mode-label {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    white-space: nowrap;
-    transition: color 0.3s;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 44px;
-    height: 24px;
-    flex-shrink: 0;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
+    margin-top: auto; /* Reverted to original */
     cursor: pointer;
-    top: 0;
+}
+
+#darkModeIcon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
+}
+
+body:not(.dark-mode) #darkModeIcon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+body.dark-mode #darkModeIcon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='5'%3E%3C/circle%3E%3Cline x1='12' y1='1' x2='12' y2='3'%3E%3C/line%3E%3Cline x1='12' y1='21' x2='12' y2='23'%3E%3C/line%3E%3Cline x1='4.22' y1='4.22' x2='5.64' y2='5.64'%3E%3C/line%3E%3Cline x1='18.36' y1='18.36' x2='19.78' y2='19.78'%3E%3C/line%3E%3Cline x1='1' y1='12' x2='3' y2='12'%3E%3C/line%3E%3Cline x1='21' y1='12' x2='23' y2='12'%3E%3C/line%3E%3Cline x1='4.22' y1='19.78' x2='5.64' y2='18.36'%3E%3C/line%3E%3Cline x1='18.36' y1='5.64' x2='19.78' y2='4.22'%3E%3C/line%3E%3C/svg%3E");
+}
+
+.sidebar.collapsed .dark-mode-toggle-container .sidebar-label,
+.sidebar.collapsed .dark-mode-toggle-container .switch {
+    display: none;
+}
+
+/* Adjust dark mode toggle for collapsed sidebar */
+.sidebar.collapsed .dark-mode-toggle-container {
+    padding: 10px 0;
+    justify-content: center;
+}
+
+/* Remove margin-right for icon when sidebar is collapsed */
+.sidebar.collapsed #darkModeIcon {
+    margin-right: 0;
+}
+
+/* Logout Button Icon */
+#logout-btn .sidebar-icon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px; /* Align with dark mode icon */
+    /* Power button SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.36 6.64a9 9 0 1 1-12.73 0'%3E%3C/path%3E%3Cline x1='12' y1='2' x2='12' y2='12'%3E%3C/line%3E%3C/svg%3E");
+}
+
+body.dark-mode #logout-btn .sidebar-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.36 6.64a9 9 0 1 1-12.73 0'%3E%3C/path%3E%3Cline x1='12' y1='2' x2='12' y2='12'%3E%3C/line%3E%3C/svg%3E");
+}
+
+/* Hide logout label when sidebar is collapsed */
+.sidebar.collapsed #logout-btn .sidebar-label {
+    display: none;
+}
+
+/* Hide company list elements when sidebar is collapsed */
+
+.sidebar.collapsed .company-list-container h4,
+.sidebar.collapsed .add-company-form,
+.sidebar.collapsed #company-ticker-input,
+.sidebar.collapsed #add-company-btn,
+.sidebar.collapsed #company-list {
+    display: none !important;
+}
+
+/* Adjust logout button padding for collapsed state */
+.sidebar.collapsed #logout-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    justify-content: center;
+    width: 100%; /* Ensure it spans full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+
+.sidebar.collapsed #logout-btn .sidebar-icon {
+    margin-right: 0;
+}
+
+
+.company-list-container {
+    padding: 10px 15px;
+    border-top: 1px solid var(--border-color);
+    flex-grow: 1;
+}
+
+.company-list-container h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.add-company-form {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+#company-ticker-input {
+    flex: 1;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+#add-company-btn {
+    background: var(--highlight-text);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#company-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+#company-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+#company-list .remove-company-btn {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* New styles for the Home button */
+#home-btn .sidebar-icon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px; /* Align with other icons */
+    /* Home icon SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'%3E%3C/path%3E%3Cpolyline points='9 22 9 12 15 12 15 22'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+body.dark-mode #home-btn .sidebar-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'%3E%3C/path%3E%3Cpolyline points='9 22 9 12 15 12 15 22'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.sidebar.collapsed #home-btn .sidebar-icon {
+    margin-right: 0; /* Center icon when collapsed */
+}
+
+/* Adjust padding for collapsed state */
+.sidebar.collapsed #home-btn {
+    padding: 10px 0;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Hide label when collapsed */
+.sidebar.collapsed #home-btn .sidebar-label {
+    display: none;
+}
+
+/* New styles for the Home button */
+#home-btn .sidebar-icon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px; /* Align with other icons */
+    /* Home icon SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'%3E%3C/path%3E%3Cpolyline points='9 22 9 12 15 12 15 22'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+body.dark-mode #home-btn .sidebar-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'%3E%3C/path%3E%3Cpolyline points='9 22 9 12 15 12 15 22'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.sidebar.collapsed #home-btn .sidebar-icon {
+    margin-right: 0; /* Center icon when collapsed */
+}
+
+/* Adjust padding for collapsed state */
+.sidebar.collapsed #home-btn {
+    padding: 10px 0;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Hide label when collapsed */
+.sidebar.collapsed #home-btn .sidebar-label {
+    display: none;
+}
+
+/* New styles for the Manage Companies button */
+#manage-companies-btn .sidebar-icon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px; /* Align with other icons */
+    /* Plus icon SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='12' y1='5' x2='12' y2='19'%3E%3C/line%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3C/svg%3E");
+}
+
+body.dark-mode #manage-companies-btn .sidebar-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='12' y1='5' x2='12' y2='19'%3E%3C/line%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3C/svg%3E");
+}
+
+.sidebar.collapsed #manage-companies-btn .sidebar-icon {
+    margin-right: 0; /* Center icon when collapsed */
+}
+
+/* Adjust padding for collapsed state */
+.sidebar.collapsed #manage-companies-btn {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Hide label when collapsed */
+.sidebar.collapsed #manage-companies-btn .sidebar-label {
+    display: none;
+}
+
+/* New styles for the add company section */
+.add-company-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    padding: 10px 15px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 10px; /* Space from "My Companies" heading */
+}
+
+/* Hide the add company form by default when sidebar is collapsed */
+.sidebar.collapsed .add-company-form {
+    display: none !important;
+}
+
+/* Show the add company icon only when sidebar is collapsed */
+.add-company-section #addCompanyIcon {
+    display: none; /* Hidden by default */
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    /* Plus icon SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='12' y1='5' x2='12' y2='19'%3E%3C/line%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3C/svg%3E");
+}
+
+body.dark-mode .add-company-section #addCompanyIcon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='12' y1='5' x2='12' y2='19'%3E%3C/line%3E%3Cline x1='5' y1='12' x2='19' y2='12'%3E%3C/line%3E%3C/svg%3E");
+}
+
+.sidebar.collapsed .add-company-section #addCompanyIcon {
+    display: block; /* Show when collapsed */
+    margin: 0 auto; /* Center the icon */
+}
+
+/* Adjust company-list-container for collapsed state */
+.sidebar.collapsed .company-list-container {
+    padding: 10px 0;
+    border-top: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Hide "My Companies" heading when collapsed */
+.sidebar.collapsed .company-list-container h4 {
+    display: none !important;
+}
+
+/* Hide company list when collapsed */
+.sidebar.collapsed #company-list {
+    display: none !important;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
 }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
+.modal-content {
+    background-color: var(--surface-color);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    width: 80%; /* Could be responsive */
+    max-width: 400px; /* Max width for larger screens */
+    box-shadow: 0 4px 8px var(--shadow-color);
+    border-radius: 8px;
+    text-align: center;
 }
 
-input:checked + .slider {
-    background-color: var(--highlight-text);
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: var(--text-color);
 }
 
-input:checked + .slider:before {
-    transform: translateX(20px);
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
-.slider.round {
-    border-radius: 24px;
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-.slider.round:before {
-    border-radius: 50%;
+.modal-buttons .btn-confirm {
+    background-color: #dc3545; /* Red for logout */
+    color: white;
+}
+
+.modal-buttons .btn-confirm:hover {
+    background-color: #c82333;
+}
+
+.modal-buttons .btn-cancel {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.modal-buttons .btn-cancel:hover {
+    background-color: var(--border-color);
+}
+
+/* Ensure modal is hidden by default */
+#logoutConfirmModal {
+    display: none;
 }

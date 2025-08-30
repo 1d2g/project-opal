@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Companies</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="companies.css"> <!-- New CSS for this page -->
+</head>
+<body>
+    <div class="top-bar">
+        <span class="top-bar-title">Opal - Manage Companies</span>
+    </div>
+    <div class="container">
+        <div class="sidebar collapsed" id="sidebar">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+            <!-- Navigation to main page -->
+            <div id="home-btn" class="sidebar-btn">
+                <div class="sidebar-icon"></div>
+                <span class="sidebar-label">Home</span>
+            </div>
+            <div class="company-list-container">
+                <h4>My Companies</h4>
+                <div class="add-company-section"> <!-- New container -->
+                    <div class="add-company-form">
+                        <input type="text" id="company-ticker-input" placeholder="Add Ticker">
+                        <button id="add-company-btn">+</button>
+                    </div>
+                    <div class="sidebar-icon" id="addCompanyIcon"></div> <!-- New icon for collapsed state -->
+                </div>
+                <ul id="company-list"></ul>
+            </div>
+            <div class="dark-mode-toggle-container" id="darkModeToggleContainer">
+                <div class="sidebar-icon" id="darkModeIcon"></div>
+                <span class="sidebar-label">Dark Mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="logout-btn" class="sidebar-btn">
+                <div class="sidebar-icon"></div>
+                <span class="sidebar-label">Logout</span>
+            </div>
+        </div>
+        <div class="main-content">
+            <h2>Manage Your Monitored Companies</h2>
+            <div class="company-management-section">
+                <div class="add-new-company">
+                    <input type="text" id="new-company-ticker" placeholder="Enter Ticker Symbol (e.g., AAPL)">
+                    <button id="add-new-company-btn">Add Company</button>
+                </div>
+                <div class="company-filter-sort">
+                    <input type="text" id="company-search" placeholder="Search companies...">
+                    <select id="company-sort">
+                        <option value="ticker-asc">Ticker (A-Z)</option>
+                        <option value="ticker-desc">Ticker (Z-A)</option>
+                    </select>
+                </div>
+                <div id="monitored-companies-list" class="monitored-companies-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <!-- Link to the new external JavaScript file -->
+    <script src="companies.js"></script>
+    <div id="logoutConfirmModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+                <button id="confirmLogoutBtn" class="btn-confirm">Yes, Log Out</button>
+                <button id="cancelLogoutBtn" class="btn-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -2,6 +2,14 @@ import feedparser
 import json
 import re
 from datetime import datetime, timedelta
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+import logging
+import hashlib
+
+# --- Configuration ---
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # List of RSS feed URLs for reputable financial news sources
 RSS_FEEDS = [
@@ -32,23 +40,25 @@ COMMON_WORD_SYMBOLS = ["A", "ALL", "ARE", "HAS", "IT", "MO", "ON", "SO", "T", "W
                        "AMP", "KEY", "NOW", "PM", "MS", "CAT", "COST", "TAP", "HUM"]
 
 def monitor_news():
+    """Fetches, filters, and stores M&A-related news articles in Firestore."""
+    # --- Firebase Initialization ---
+    try:
+        cred = credentials.ApplicationDefault()
+        firebase_admin.initialize_app(cred, {
+            'projectId': 'opal-230c9',
+        })
+        db = firestore.client()
+        logging.info("Successfully initialized Firebase.")
+    except Exception as e:
+        logging.error(f"Failed to initialize Firebase: {e}")
+        return
+
     companies = load_companies()
     
-    # Load existing articles
-    existing_articles = []
-    try:
-        with open("site/news_summary.json", "r") as f:
-            existing_articles = json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        existing_articles = []
-
-    # No date-based filtering, keep all existing articles
-    fresh_existing_articles = existing_articles
-
     newly_fetched_articles = []
 
     for feed_url in RSS_FEEDS:
-        print(f"Fetching feed from: {feed_url}")
+        logging.info(f"Fetching feed from: {feed_url}")
         feed = feedparser.parse(feed_url)
 
         for entry in feed.entries:
@@ -57,10 +67,7 @@ def monitor_news():
             link = entry.link if hasattr(entry, 'link') else ''
             published_date = entry.published if hasattr(entry, 'published') else ''
 
-            # Try to parse date, default to current if not available or invalid
             try:
-                # feedparser dates are often in RFC 822 or ISO 8601 format
-                # We'll try to parse it and then format to YYYY-MM-DD
                 dt_object = datetime.strptime(published_date, '%a, %d %b %Y %H:%M:%S %z')
                 formatted_date = dt_object.strftime('%Y-%m-%d')
             except ValueError:
@@ -68,28 +75,24 @@ def monitor_news():
                     dt_object = datetime.fromisoformat(published_date.replace('Z', '+00:00'))
                     formatted_date = dt_object.strftime('%Y-%m-%d')
                 except ValueError:
-                    formatted_date = datetime.now().strftime('%Y-%m-%d') # Default to today
+                    formatted_date = datetime.now().strftime('%Y-%m-%d')
 
-            # Check for company names or symbols in title or summary
             company_found_in_article = False
             found_company_ticker = None
             found_company_name = None
 
             text = (title + " " + summary).lower()
 
-            for company_obj in companies: # Iterate through each company
+            for company_obj in companies:
                 name = company_obj["name"]
                 symbol = company_obj["symbol"]
 
-                # Prioritize matching full company name
                 if re.search(r'\b' + re.escape(name.lower()) + r'\b', text):
                     found_company_ticker = symbol
                     found_company_name = name
                     company_found_in_article = True
                     break
 
-                # If full name not found, try matching symbol
-                # Only match symbol if it's NOT in COMMON_WORD_SYMBOLS
                 if not company_found_in_article and symbol not in COMMON_WORD_SYMBOLS:
                     if re.search(r'\b' + re.escape(symbol.lower()) + r'\b', text):
                         found_company_ticker = symbol
@@ -111,21 +114,19 @@ def monitor_news():
                 }
                 newly_fetched_articles.append(article)
     
-    # Combine and Deduplicate articles
-    all_articles = fresh_existing_articles + newly_fetched_articles
-    unique_articles = {article["url"]: article for article in all_articles}.values()
-    
-    # Sort by date (newest first)
-    sorted_articles = sorted(list(unique_articles), key=lambda x: x.get("published_at", ""), reverse=True)
+    # --- Firestore Integration ---
+    if newly_fetched_articles:
+        logging.info(f"Writing {len(newly_fetched_articles)} new articles to Firestore...")
+        for article in newly_fetched_articles:
+            try:
+                # Use a hash of the URL as the document ID to create a unique, valid ID
+                doc_id = hashlib.sha256(article['url'].encode()).hexdigest()
+                db.collection('news').document(doc_id).set(article)
+                logging.info(f"Wrote article {article['title']} to Firestore.")
+            except Exception as e:
+                logging.error(f"Failed to write article {article['title']} to Firestore: {e}")
 
-    # Limit to 25 articles
-    final_articles = sorted_articles[:25]
-
-    # Save news to json file
-    with open("site/news_summary.json", "w") as f:
-        json.dump(final_articles, f, indent=4)
-
-    print(f"Successfully fetched and saved {len(final_articles)} news articles.")
+    logging.info(f"Successfully fetched and processed {len(newly_fetched_articles)} news articles.")
 
 if __name__ == "__main__":
     monitor_news()

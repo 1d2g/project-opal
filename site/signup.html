@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - Opal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body class="dark-mode">
+    <div class="top-bar">
+        <span class="top-bar-title">Opal</span>
+    </div>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Sign Up</h2>
+            <div class="input-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name">
+            </div>
+            <div class="input-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name">
+            </div>
+            <div class="input-group">
+                <label for="organization">Organization (Optional)</label>
+                <input type="text" id="organization" name="organization">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="input-group">
+                <label for="retype-password">Retype Password</label>
+                <input type="password" id="retype-password" name="retype-password">
+            </div>
+            <div class="button-group">
+                <button id="signup-btn">Sign Up</button>
+            </div>
+            <p id="error-message" class="error-message"></p>
+            <p class="auth-link">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="signup.js"></script>
+</body>
+</html>

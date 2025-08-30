@@ -1,17 +1,89 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyDM_CdyN_3LLEccYZIhKz-2V63W0D6ORh4",
+  authDomain: "opal-230c9.firebaseapp.com",
+  projectId: "opal-230c9",
+  storageBucket: "opal-230c9.firebasestorage.app",
+  messagingSenderId: "534314384816",
+  appId: "1:534314384816:web:1ac71dbd42b65d7e186a75",
+  measurementId: "G-LC24W6NL91"
+};
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const auth = firebase.auth();
+
 let allFetchedReports = [];
 let currentFilter = 'ma_only'; // Set the default filter state
+
+function chunkArray(array, chunkSize) {
+    const chunks = [];
+    for (let i = 0; i < array.length; i += chunkSize) {
+        chunks.push(array.slice(i, i + chunkSize));
+    }
+    return chunks;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     setupFilters();
     fetchReports();
     setupDarkMode();
-    fetchNews();
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            // User is signed in.
+            setupFilters();
+            
+            setupLogout();
+            const manageCompaniesBtn = document.getElementById('manage-companies-btn');
+            if (manageCompaniesBtn) {
+                manageCompaniesBtn.addEventListener('click', () => {
+                    window.location.href = 'companies.html';
+                });
+}
+            fetchReports();
+            fetchNews();
+        } else {
+            // User is signed out.
+            window.location.href = 'login.html';
+        }
+    });
 });
+
+function setupLogout() {
+    const logoutBtn = document.getElementById('logout-btn');
+    const logoutConfirmModal = document.getElementById('logoutConfirmModal');
+    const confirmLogoutBtn = document.getElementById('confirmLogoutBtn');
+    const cancelLogoutBtn = document.getElementById('cancelLogoutBtn');
+
+    logoutBtn.addEventListener('click', () => {
+        logoutConfirmModal.style.display = 'flex'; // Show the modal
+    });
+
+    cancelLogoutBtn.addEventListener('click', () => {
+        logoutConfirmModal.style.display = 'none'; // Hide the modal
+    });
+
+    confirmLogoutBtn.addEventListener('click', async () => {
+        try {
+            await auth.signOut();
+            window.location.href = 'login.html';
+        } catch (error) {
+            console.error("Logout failed:", error);
+        }
+    });
+}
+
 
 function setupDarkMode() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const darkModeIcon = document.getElementById('darkModeIcon');
     const body = document.body;
+
+    // Only proceed if the elements exist
+    if (!darkModeToggle || !darkModeIcon) {
+        console.warn("Dark mode toggle elements not found. Skipping setup.");
+        return;
+    }
 
     const setDarkMode = (enabled) => {
         if (enabled) {
@@ -64,6 +136,8 @@ function setupFilters() {
     });
 }
 
+
+
 function toggleHorizontalBox(button) {
     const box = document.getElementById('horizontal-box');
     box.classList.toggle('collapsed');
@@ -81,12 +155,40 @@ function toggleSidebar() {
 
 async function fetchReports() {
     const reportListContainer = document.getElementById('report-list-container');
+    const user = auth.currentUser;
+    if (!user) { return; } // User must be logged in
+
     try {
-        const response = await fetch('analysis_manifest.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        const userPreferencesDoc = await db.collection('user_preferences').doc(user.uid).get();
+        let monitoredCompanies = [];
+        if (userPreferencesDoc.exists) {
+            monitoredCompanies = userPreferencesDoc.data().monitored_companies || [];
         }
-        allFetchedReports = await response.json();
+
+        if (monitoredCompanies.length === 0) {
+            reportListContainer.innerHTML = '<p class="no-reports">Add a company to your list to see reports.</p>';
+            return;
+        }
+
+        const tickerChunks = chunkArray(monitoredCompanies, 10); // Chunk into arrays of 10
+        let allFilings = [];
+        let allCompaniesData = {};
+
+        // Fetch filings in chunks
+        for (const chunk of tickerChunks) {
+            const filingsSnapshot = await db.collection('filings').where('ticker', 'in', chunk).orderBy('date', 'desc').get();
+            filingsSnapshot.docs.forEach(doc => allFilings.push(doc.data()));
+
+            const companiesSnapshot = await db.collection('companies').where(firebase.firestore.FieldPath.documentId(), 'in', chunk).get();
+            companiesSnapshot.docs.forEach(doc => {
+                allCompaniesData[doc.id] = doc.data();
+            });
+        }
+
+        allFetchedReports = allFilings.map(filing => {
+            const companyDetails = allCompaniesData[filing.ticker] || {};
+            return { ...filing, ...companyDetails };
+        });
         renderReports();
 
     } catch (error) {
@@ -105,7 +207,7 @@ function renderReports() {
 
     const reportsToRender = currentFilter === 'all'
         ? allFetchedReports
-        : allFetchedReports.filter(report => report.sentiment !== 'None');
+        : allFetchedReports.filter(report => report.sentiment !== 'None' && report.sentiment !== 'Passive');
 
     if (reportsToRender.length === 0) {
         reportListContainer.innerHTML = '<p class="no-reports">No reports match the current filter.</p>';
@@ -113,6 +215,7 @@ function renderReports() {
     }
 
     reportsToRender.forEach(report => {
+        console.log("Report object being passed to createReportCard:", report); // ADD THIS LINE
         const reportCard = createReportCard(report);
         reportListContainer.appendChild(reportCard);
     });
@@ -127,18 +230,30 @@ function createReportCard(report) {
     const secUrl = `https://www.sec.gov/Archives/edgar/data/${parseInt(report.cik, 10)}/${accessionNodash}/${report.accession_no}-index.html`;
     const formLink = `<a href="${secUrl}" class="sec-link-form" target="_blank" rel="noopener noreferrer" title="View filing on SEC.gov">${report.form}</a>`;
 
+    // Format findings, potential activity, and quotes
+    const formatList = (items) => items.map(item => `<li>${item}</li>`).join('');
+
     card.innerHTML = `
         <div class="report-header">
-            <h3>${report.company_name} (${report.ticker})</h3>
+            <h3>${report.company_name} (${report.ticker}) - ${formLink}</h3>
             <span class="report-date">${report.date}</span>
         </div>
         <div class="report-body">
-            <p><strong>Form:</strong> ${formLink}</p>
-            <p><strong>M&A Sentiment:</strong> <span class="sentiment">${report.sentiment}</span></p>
-            <h4>Key Findings:</h4>
-            <ul>${report.findings.map(finding => `<li>${finding}</li>`).join('')}</ul>
+            <p><strong>Sentiment:</strong> <span class="sentiment">${report.sentiment || 'N/A'}</span></p>
+            ${report.findings && report.findings.length > 0 ? `
+                <h4>Key Findings:</h4>
+                <ul>${formatList(report.findings)}</ul>
+            ` : ''}
+            ${report.potential_activity && report.potential_activity.length > 0 ? `
+                <h4>Potential Activity:</h4>
+                <ul>${formatList(report.potential_activity)}</ul>
+            ` : ''}
+            ${report.quotes && report.quotes.length > 0 ? `` : ''}
+            ${report.sentiment === 'None' && report.findings.length === 1 ? `
+                <p>${report.findings[0]}</p>
+            ` : ''}
         </div>
-        <button class="report-link" onclick="toggleFullReport(this, '${report.report_path}')">View Full Report</button>
+        ${report.report_path ? `<button class="report-link" onclick="toggleFullReport(this, '${report.report_path}')">View Full Report</button>` : ''}
     `;
     return card;
 }
@@ -160,7 +275,7 @@ async function toggleFullReport(button, reportPath) {
         button.textContent = 'Loading...';
         try {
             const response = await fetch(reportPath);
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            if (!response.ok) { throw new Error('HTTP error! status: ' + response.status); }
             
             const reportText = await response.text();
 
@@ -200,13 +315,30 @@ async function toggleFullReport(button, reportPath) {
 
 async function fetchNews() {
     const newsListContainer = document.getElementById('news-list-container');
+    const user = auth.currentUser;
+    if (!user) { return; } // User must be logged in
+
     try {
-        const response = await fetch('news_summary.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        const userPreferencesDoc = await db.collection('user_preferences').doc(user.uid).get();
+        let monitoredCompanies = [];
+        if (userPreferencesDoc.exists) {
+            monitoredCompanies = userPreferencesDoc.data().monitored_companies || [];
         }
-        const newsData = await response.json();
-        renderNews(newsData);
+
+        if (monitoredCompanies.length === 0) {
+            newsListContainer.innerHTML = '<p class="no-reports">Add a company to your list to see news.</p>';
+            return;
+        }
+
+        const tickerChunks = chunkArray(monitoredCompanies, 10); // Chunk into arrays of 10
+        let allNews = [];
+
+        // Fetch news in chunks
+        for (const chunk of tickerChunks) {
+            const snapshot = await db.collection('news').where('ticker', 'in', chunk).orderBy('published_at', 'desc').limit(25).get();
+            snapshot.docs.forEach(doc => allNews.push(doc.data()));
+        }
+        renderNews(allNews);
 
     } catch (error) {
         console.error("Failed to fetch or process news:", error);
@@ -223,7 +355,7 @@ function renderNews(newsData) {
     newsListContainer.innerHTML = ''; // Clear existing news
 
     if (newsData.length === 0) {
-        newsListContainer.innerHTML = '<p class="no-reports">No news available.</p>';
+        newsListContainer.innerHTML = '<p class="no-reports">No news available for the selected companies.</p>';
         return;
     }
 

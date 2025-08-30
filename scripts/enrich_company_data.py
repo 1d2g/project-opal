@@ -21,7 +21,7 @@ def create_company_list_from_csv(csv_path):
         df = pd.read_csv(csv_path)
 
         # Verify required columns exist
-        required_cols = {'Symbol', 'Security', 'CIK'}
+        required_cols = {'Symbol', 'Security', 'CIK', 'GICS Sector', 'GICS Sub-Industry'}
         if not required_cols.issubset(df.columns):
             logging.error(f"CSV file must contain the following columns: {required_cols}. Found: {df.columns.tolist()}")
             return None
@@ -35,7 +35,10 @@ def create_company_list_from_csv(csv_path):
                 enriched_companies.append({
                     "symbol": row['Symbol'],
                     "name": row['Security'],
-                    "cik": cik_val
+                    "cik": cik_val,
+                    "sector": row['GICS Sector'],
+                    "sub_industry": row['GICS Sub-Industry'],
+                    "indexes": ["S&P 500"]
                 })
 
         # Sort by symbol for consistency
