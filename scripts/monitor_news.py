@@ -7,6 +7,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 import logging
 import hashlib
+import os
 
 # --- Configuration ---
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
