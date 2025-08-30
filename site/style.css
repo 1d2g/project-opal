@@ -81,7 +81,6 @@ body {
     box-shadow: 2px 0 8px var(--shadow-color);
     padding: 5px;
     width: 220px;
-    transition: width 0.3s, background-color 0.3s, color 0.3s;
     min-width: 60px;
     display: flex;
     flex-direction: column;
